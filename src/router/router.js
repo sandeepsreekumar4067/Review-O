@@ -7,7 +7,8 @@ const routes = [
     },
     {
         path:'/organisation',component:OrganisationPage
-    }
+    },
+    
 ]
 const router = createRouter({
     history:createWebHistory(),

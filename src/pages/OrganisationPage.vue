@@ -1,6 +1,5 @@
 <template>
-    <NavBar/>
-    helo world
+    <NavBar title = "Organisations" subtitle="All Organizations Information" user="Robert Allen"/>
 </template>
 
 <script>
