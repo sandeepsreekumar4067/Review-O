@@ -1,5 +1,5 @@
 <template>
-  <div :class="['sidebar-components',{active : isActive}]" >
+  <div :class="['sidebar-container',{active : isActive}]" >
     <div class="sidebar-components">
         <span :class="{ active: activeSpan === 1 }" @click="setActive(1)">
         <i class="bi bi-columns-gap"></i>
@@ -29,10 +29,15 @@
 import "../style/sidebar.css";
 export default {
   name: "SideBar",
-  props:['isActive'],
+  props:{
+    isActive:{
+        type:Boolean,
+        default:false
+    }
+  },
   data() {
     return {
-      activeSpan: null
+      activeSpan: null,
     };
   },
   methods: {

@@ -1,7 +1,7 @@
 <template>
   <div class="navbar-container">
     <div class="navbar-left-container">
-      <i class="bi bi-list"></i>
+      <i class="bi bi-list" @click="toggleSidebar"></i>
       <img :src="Logo" alt="" />
       <div class="navbar-title-container">
         <div class="navbar-title">
@@ -45,17 +45,22 @@ export default {
       Logo: Logo,
       ProfilePic: ProfilePic,
       dropdownVisible: false,
+      isActive:false
     };
   },
   methods: {
     toggleDropdown() {
       this.dropdownVisible = !this.dropdownVisible;
     },
+
     handleClickOutside(event) {
       if (!this.$el.contains(event.target)) {
         this.dropdownVisible = false;
       }
     },
+    toggleSidebar(){
+      this.$emit('toggle-sidebar')
+    }
   },
   mounted() {
     document.addEventListener("click", this.handleClickOutside);

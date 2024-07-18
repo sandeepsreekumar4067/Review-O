@@ -3,8 +3,9 @@
     title="Organisations"
     subtitle="All Organizations Information"
     user="Robert Allen"
+    @toggle-sidebar="setSideBarActive"
   />
-  <SideBar/>
+  <SideBar :isActive="isSideBarActive"/>
 </template>
 
 <script>
@@ -17,6 +18,16 @@ export default {
     NavBar,
     SideBar
   },
+  data(){
+    return{
+      isSideBarActive:false
+    }
+  },
+  methods:{
+    setSideBarActive(){
+      this.isSideBarActive=!this.isSideBarActive
+    }
+  }
 };
 </script>
 
