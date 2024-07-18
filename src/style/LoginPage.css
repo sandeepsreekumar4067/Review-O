@@ -116,11 +116,12 @@
 .email-input{
     box-sizing: border-box;
     padding: 0.8rem;
-    height: 45%;
-    width: 100%;
+    height: 6%;
+    width: 62%;
     border-radius: 10px;
     border: 1.8px solid #A2A1A899 ;
     outline: none;
+    margin :1.5rem;
 }
 .email-input:focus,
 .email-input:active {
@@ -128,52 +129,9 @@
   border: 1.8px solid #A2A1A899; /* Ensure consistent border on focus */
   color: black;
 }
-.password-container{
-    height: 100%;
-    width: 100%;
-    border-radius: 10px;
-    border: 1.8px solid #A2A1A899 ;
-    color: #A2A1A899;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    box-sizing: border-box;
-    padding: 0.8rem;
-}
-.password-container input[type="password"]{
-    height: 100%;
-    width: 90%;
-    outline: none;
-    border: none;
-}
-.password-container input[type="text"]{
-    height: 100%;
-    width: 90%;
-    outline: none;
-    border: none;
-}
-.login-submit-container{
-    height: 9%;
-    width: 54%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-sizing: border-box;
-    padding: 0.8rem;
-    margin-top: 1rem;
-}
-.remember{
-    box-sizing: border-box;
-    padding: 0.3rem;
-    font-size: 0.9rem;
-    color: #757575;
-}
-.remember input[type="checkbox"]{
-    scale: 1.8;
-    margin: 0.8rem;
-}
-.login-submit-container input[type="button"]{
-    height: 100%;
+
+.right-container input[type="button"]{
+    height: 3rem;
     width: 7rem;
     background-color: #4285F4;
     color: white;
@@ -181,21 +139,8 @@
     border: none;
     outline: none;
     border-radius: 8px;
+    transition: 0.4s;
 }
-.create-account-container{
-    height: 7%;
-    width: 54%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.3rem;
-}
-.create-account-container p{
-    font-size: 0.9rem;
-    font-weight: 400;
-}
-.create-account-container a{
-    font-size: 1rem;
-    font-weight: 700;
-    color: #424242;
+.right-container input[type="button"]:active{
+    scale: 0.9;
 }
