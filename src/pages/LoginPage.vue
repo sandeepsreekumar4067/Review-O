@@ -23,7 +23,7 @@
         </div>
         <div class="facebook">
           <img :src="facebook" alt="" />
-          <p>Log In with Facebook</p>
+          <p>Log In with Microsoft</p>
         </div>
       </div>
       <input type="text" placeholder="Email Address" class="email-input" />
