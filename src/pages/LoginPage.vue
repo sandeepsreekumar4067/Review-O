@@ -13,7 +13,7 @@
         <img :src="Logo" />
       </div>
       <div class="login-title">
-        Welcome back to the <br />
+        Welcome back to the
         officeO community
       </div>
       <div class="login-buttons">
