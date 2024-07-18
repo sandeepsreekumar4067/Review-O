@@ -25,6 +25,7 @@
         <div v-if="dropdownVisible" class="dropdown-menu">
           <a href="#">Profile Page</a>
           <a href="#">Logout</a>
+          <a href="#">More info</a>
         </div>
       </div>
     </div>
@@ -57,10 +58,10 @@ export default {
     },
   },
   mounted() {
-    document.addEventListener('click', this.handleClickOutside);
+    document.addEventListener("click", this.handleClickOutside);
   },
   beforeUnmount() {
-    document.removeEventListener('click', this.handleClickOutside);
-  }
+    document.removeEventListener("click", this.handleClickOutside);
+  },
 };
 </script>
