@@ -1,6 +1,6 @@
 .organisation-container {
     margin-top: 7rem;
-    height: 100vh;
+    height: auto;
     width: 100%;
     display: flex;
     align-items: center;

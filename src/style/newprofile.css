@@ -1,0 +1,22 @@
+.new-profile-container {
+    margin-top: 7rem;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.new-profile-components {
+    width: 100%;
+    height: 100%;
+    transition: 0.4s;
+    box-sizing: border-box;
+    padding: 1rem;
+    background-color: var(--white);
+}
+
+.new-profile-components.active {
+    margin-left: 19%;
+    border-radius: 10px 0 0 0;
+}

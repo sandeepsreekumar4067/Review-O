@@ -115,7 +115,7 @@
     border-radius: 7px;
     display: flex;
     align-items: center;
-    justify-content: start;
+    justify-content: space-between;
     gap: 1rem;
     box-sizing: border-box;
     padding: 0.2rem;
