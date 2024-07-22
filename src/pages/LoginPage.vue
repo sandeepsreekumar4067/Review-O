@@ -21,8 +21,8 @@
           <img :src="google" alt="" />
           <p>Log In with Google</p>
         </div>
-        <div class="facebook">
-          <img :src="facebook" alt="" />
+        <div class="Microsoft">
+          <img :src="Microsoft" alt="" />
           <p>Log In with Microsoft</p>
         </div>
       </div>
@@ -38,7 +38,7 @@ import "../style/app.css";
 import LoginImage from "../assets/Illustration.png";
 import Logo from "../assets/Logo2.png";
 import google from "../assets/google.svg";
-import facebook from "../assets/facebook.svg";
+import Microsoft from "../assets/Microsoft.svg";
 export default {
   name: "LoginPage",
   data() {
@@ -48,7 +48,7 @@ export default {
       passVisibility: false,
       passType: "password",
       google: google,
-      facebook: facebook,
+      Microsoft: Microsoft,
     };
   },
   methods: {
