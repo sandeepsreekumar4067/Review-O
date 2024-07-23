@@ -8,7 +8,7 @@
   <div class="new-profile-container">
     <SideBar :isActive="isSideBarActive" />
     <div :class="['new-profile-components', { active: isSideBarActive }]">
-      <div class="new-profile-title">Organization Information</div>
+      <div class="new-profile-title">Profile information</div>
       <div class="add-new-profile-pic-container">
         <i class="bi bi-camera"></i>
       </div>
@@ -29,13 +29,13 @@
         </select>
         <select name="role" id="role">
           <option value="all scopes">All role</option>
-          <option value="role 1">role 1</option>
-          <option value="role 2">role 2</option>
+          <!-- <option value="role 1">role 1</option>
+          <option value="role 2">role 2</option> -->
         </select>
         <select name="scope" id="scope">
           <option value="all scopes">All Scope</option>
-          <option value="scope 1">scope 1</option>
-          <option value="scope 2">scope 2</option>
+          <!-- <option value="scope 1">scope 1</option>
+          <option value="scope 2">scope 2</option> -->
         </select>
       </div>
       <textarea name="about-me" id="about-me" placeholder="About me"></textarea>
@@ -63,7 +63,7 @@ export default {
       title: "New Profile",
       subtitle: "Add Profile Details",
       user: "New User",
-      isSideBarActive: false,
+      isSideBarActive: true,
       selectedTimezone: "",
       timezones: [
         { value: "Pacific/Midway", label: "(UTC-11:00) Midway Island" },

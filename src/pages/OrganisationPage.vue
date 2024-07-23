@@ -40,7 +40,7 @@ export default {
   },
   data() {
     return {
-      isSideBarActive: false,
+      isSideBarActive: true,
       branches: [], // This will hold the fetched data
       currentPage: 1,
       branchesPerPage: 8,
