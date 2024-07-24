@@ -64,12 +64,14 @@
 }
 
 .navbar-right-container {
-    width: 38%;
+    width: fit-content;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: start;
     gap: 1rem;
+    box-sizing: border-box;
+    padding: 0.8rem;
 }
 
 .navbar-search-bar {
@@ -110,7 +112,7 @@
 .navbar-drop-down {
     cursor: pointer;
     height: 2.5rem;
-    width: 38%;
+    flex: 1 1 38%;
     border: 1.8px solid #4285F4;
     border-radius: 7px;
     display: flex;
@@ -147,4 +149,87 @@
 
 .dropdown-menu a:hover {
     background-color: #f1f1f1;
+}
+.bi-caret-left-fill {
+    font-size: 1.3rem;
+    cursor: pointer;
+    /* position: absolute; */
+    right: 1rem;
+    top: 1rem;
+    z-index: 1001; /* Ensure it's above other elements */
+    background-color: #4285F41A;
+    border-radius: 6px;
+    padding: 0.5rem;
+    transition: 0.4s;
+    display: none;
+}
+.bi-caret-right-fill{
+    font-size: 1.3rem;
+    cursor: pointer;
+    /* position: absolute; */
+    right: 1rem;
+    top: 1rem;
+    z-index: 1001; /* Ensure it's above other elements */
+    background-color: #4285F41A;
+    border-radius: 6px;
+    padding: 0.5rem;
+    transition: 0.4s;
+    display: none;
+}
+.bi-caret-left-fill:hover {
+    background-color: #4285F499;
+}
+@media screen and (max-width: 300px) {
+    body{
+        overflow-x: hidden;
+    }
+    .navbar-left-container{
+        box-sizing: border-box;
+        padding: 1rem;
+        width: 100%;
+        position: relative;
+    }
+    .navbar-left-container img{
+        height: 60%;
+        width: 60%;
+    }
+    .navbar-left-container .bi-list{
+        height: 2rem;
+        width: 2.5rem;
+        font-size: 1.5rem;
+    }
+    .navbar-title-container{
+        position: absolute;
+        top: 45%;
+    }
+    .bi-caret-left-fill{
+        display: flex;
+    }
+    .bi-caret-right-fill{
+        display: flex;
+    }
+    .navbar-container{
+        position: relative;
+    }
+    .navbar-right-container{
+        position: absolute;
+        transform: translateX(110%);
+        /* display: none; */
+        flex-direction: column;
+        transition: 0.4s;
+        background-color: var(--bodyBg);
+        top: 80%;
+        height: 12rem;
+        right: 0;
+        box-sizing: border-box;
+        padding: 1.6rem;
+    }
+    .navbar-right-container.visible{
+        transform: translateX(0);
+        display: flex;
+    }
+    .navbar-search-bar{
+        height: 3rem;
+    }
+    
 }

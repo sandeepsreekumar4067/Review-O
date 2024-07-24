@@ -12,7 +12,9 @@
         </div>
       </div>
     </div>
-    <div class="navbar-right-container">
+    <i v-if="!showRightContainer" class="bi bi-caret-left-fill" @click="toggleRightContainer"></i>
+    <i v-else class="bi bi-caret-right-fill" @click="toggleRightContainer"></i>
+    <div :class="['navbar-right-container', { 'visible': showRightContainer }]">
       <div class="navbar-search-bar">
         <i class="bi bi-search"></i>
         <input type="text" placeholder="Search" />
@@ -29,8 +31,10 @@
         </div>
       </div>
     </div>
+    
   </div>
 </template>
+
 
 <script>
 import "../style/navbar.css";
@@ -45,7 +49,7 @@ export default {
       Logo: Logo,
       ProfilePic: ProfilePic,
       dropdownVisible: false,
-      isActive:false
+      showRightContainer: false, // State to manage right container visibility
     };
   },
   methods: {
@@ -60,6 +64,9 @@ export default {
     },
     toggleSidebar(){
       this.$emit('toggle-sidebar')
+    },
+    toggleRightContainer() {
+      this.showRightContainer = !this.showRightContainer;
     }
   },
   mounted() {
