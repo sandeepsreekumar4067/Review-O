@@ -68,4 +68,61 @@
     border-radius: 8px;
     box-sizing: border-box;
     padding: 0.6rem;
+    cursor: pointer;
+}
+.image-and-subscribeContainer{
+    height: 53%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.uber{
+    background-color: #0000000D;
+    border: 1.8px solid #00000059;
+}
+
+.image-and-subscribeContainer .image-container{
+    height:100%;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 0.6rem;
+
+}
+.image-and-subscribeContainer .image-container img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+.image-and-subscribeContainer .subscribe-button{
+    height: 100%;
+    width: 30%;
+}
+.image-and-subscribeContainer .subscribe-button input[type="button"]{
+    height: 38%;
+    width: 100%;
+    background-color: #4285F41A;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    font-weight: 300;
+    font-size: 0.9rem;
+    cursor: pointer;
+
+}
+#subscribed{
+    background-color: #4285F4;
+    color: var(--white);
+}
+.uber .description-box{
+    height: 50%;
+    width: 90%;
+    box-sizing: border-box;
+    font-weight: 300;
+    display: flex;
+    align-items: end;
+    justify-content: start;
 }
