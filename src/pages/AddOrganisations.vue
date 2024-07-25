@@ -3,6 +3,7 @@
     :title="title"
     :subtitle="subtitle"
     @toggle-sidebar="setSidebarActive"
+    :user="user"
   />
   <div class="addOrganisation-container">
     <div :class="['addOrganisation-components', { active: isSidebarActive }]">
@@ -33,7 +34,7 @@
           <input type="button" value="Cancel">
           <input type="button" value="Save" id="save">
         </div>
-      <SideBar :isActive="isSidebarActive" />
+      <SideBar :isActive="isSidebarActive" :activeSpan="2"/>
     </div>
   </div>
 </template>
@@ -53,6 +54,7 @@ export default {
       title: "Add Organisation",
       subtitle: "Organisations/Add organisation",
       isSidebarActive: true,
+      user:'Sandeep Sreekumar',
       selectedTimezone: "",
       timezones: [
         { value: "Pacific/Midway", label: "(UTC-11:00) Midway Island" },
