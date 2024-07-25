@@ -2,6 +2,7 @@ import {  createRouter, createWebHistory } from "vue-router";
 import LoginPage from "@/pages/LoginPage.vue";
 import OrganisationPage from "@/pages/OrganisationPage.vue";
 import AddProfileDetails from "@/pages/AddProfileDetails.vue";
+import AddOrganisations from "@/pages/AddOrganisations.vue";
 const routes = [
     {
         path : '/',component:LoginPage
@@ -11,6 +12,9 @@ const routes = [
     },
     {
         path:'/new-profile',component:AddProfileDetails
+    },
+    {
+        path : '/add-organisation',component:AddOrganisations
     }
 ]
 const router = createRouter({

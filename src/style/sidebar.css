@@ -48,3 +48,39 @@
     background-color: var(--blue);
     /* Optional: Add background color or other styles */
 }
+@media screen and (max-width:800px) {
+    .sidebar-container{
+        top: 5rem;
+        width: 40%;
+        height: 50%;
+    }
+    .sidebar-components{
+        height: 100%;
+        width: 100%;
+        justify-content: space-evenly;
+    }
+}
+@media screen and (max-width:500px) {
+    .sidebar-container{
+        top: 5rem;
+        width: 70%;
+        height: 50%;
+    }
+    .sidebar-components{
+        height: 100%;
+        width: 100%;
+        justify-content: space-evenly;
+    }
+}
+@media screen and (max-width:300px) {
+    .sidebar-container{
+        top: 5rem;
+        width: 90%;
+        height: 50%;
+    }
+    .sidebar-components{
+        height: 100%;
+        width: 100%;
+        justify-content: space-evenly;
+    }
+}

@@ -1,16 +1,26 @@
 <template>
-  <NavBar title="titlsekeje" subtitle="random subtitle" user="sandeep sreekumar"/>
-   <!-- <router-view/> -->
+  <router-view/>
 </template>
 
 <script>
-import "../src/style/app.css"
-import NavBar from "./components/NavBar.vue";
+import "../src/style/app.css";
+
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    NavBar
+    
+  },
+  data() {
+    return {
+      isSideBarActive: true,
+    };
+  },
+  methods:{
+    setSideBarActive() {
+      this.isSideBarActive = !this.isSideBarActive;
+    },
   }
-}
+};
+
 </script>
 
