@@ -1,4 +1,51 @@
 .app-container{
     height: 100vh;
     width: 100%;    
+    margin-top: 7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.app-components{
+    height: 100%;
+    width: 100%;
+    background-color: var(--white);
+    transition: 0.4s;
+    box-sizing: border-box;
+    padding: 1.8rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: start;
+    flex-direction: column;
+    flex-wrap: wrap;
+    
+}
+.app-components.active{
+    border-radius:10px 0 0 0 ;
+    margin-left: 19%;
+}
+.appPage-searchBar{
+    height: 3rem;
+    width: 21rem;
+    border: solid 1.8px #4285F459;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 0.3rem;
+    box-sizing: border-box;
+    padding: 0.8rem;
+}
+.appPage-searchBar .bi-search{
+    font-size: 1.3rem;
+}
+.appPage-searchBar input[type="text"]{
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    padding: 0.5rem;
+    font-size: 1rem;
+    font-weight: 300;
 }

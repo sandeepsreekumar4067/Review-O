@@ -6,8 +6,12 @@
       :user="user"
       @toggle-sidebar="setSideBarActive"
     />
-    <div class="app-components">
+    <div :class="['app-components',{active:isSideBarActive}]">
       <SideBar :isActive="isSideBarActive" :activeSpan="4" />
+      <div class="appPage-searchBar">
+        <i class="bi bi-search"></i>
+        <input type="text" placeholder="Search">
+      </div>
     </div>
   </div>
 </template>
