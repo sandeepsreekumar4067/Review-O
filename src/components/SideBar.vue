@@ -13,7 +13,7 @@
         <i class="bi bi-people"></i>
         <p>All Users</p>
       </span>
-      <span :class="{ active: activeSpan === 4 }" @click="setActive('/')">
+      <span :class="{ active: activeSpan === 4 }" @click="setActive('/apps')">
         <i class="bi bi-grid"></i>
         <p>Apps</p>
       </span>
