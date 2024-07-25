@@ -6,11 +6,31 @@
       :user="user"
       @toggle-sidebar="setSideBarActive"
     />
-    <div :class="['app-components',{active:isSideBarActive}]">
+    <div :class="['app-components', { active: isSideBarActive }]">
       <SideBar :isActive="isSideBarActive" :activeSpan="4" />
       <div class="appPage-searchBar">
         <i class="bi bi-search"></i>
-        <input type="text" placeholder="Search">
+        <input type="text" placeholder="Search" />
+      </div>
+      <div class="apps-select-container">
+        <div class="uber">
+            uber
+        </div>
+        <div class="doorDash">
+            doordash
+        </div>
+        <div class="appGoogle">
+            google
+        </div>
+        <div class="tripAdvisor">
+            trip advisor
+        </div>
+        <div class="skipTheDishes">
+            skip the dishes
+        </div>
+        <div class="faceBook">
+            facebook
+        </div>
       </div>
     </div>
   </div>
