@@ -133,17 +133,17 @@
             </div>
             <div class="subscribe-button">
               <input
-                v-if="!isSubscribed"
+                v-if="!skipTheDishesSubscribed"
                 type="button"
                 value="Unsubscribe"
-                @click="toggleSubscription"
+                @click="toggleSubscription('skipTheDishesSubscribed')"
               />
               <input
                 v-else
                 type="button"
                 value="Subscribe"
                 id="subscribed"
-                @click="toggleSubscription"
+                @click="toggleSubscription('skipTheDishesSubscribed')"
               />
             </div>
           </div>
@@ -188,6 +188,7 @@
 
 <script>
 import NavBar from "@/components/NavBar.vue";
+import confetti from 'canvas-confetti';
 import "../style/appsPage.css";
 import SideBar from "@/components/SideBar.vue";
 import uber from "../assets/uber.svg";
@@ -229,6 +230,16 @@ export default {
     },
     toggleSubscription(subscriptionKey) {
       this[subscriptionKey] = !this[subscriptionKey]
+      this[subscriptionKey]!=false?this.launchConfetti() : '';
+    },
+    launchConfetti() {
+      confetti({
+        particleCount: 400,
+        spread: 200,
+        origin: {
+          y:0.7
+        }
+      });
     },
   },
 };
