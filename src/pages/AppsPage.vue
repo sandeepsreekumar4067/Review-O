@@ -1,11 +1,11 @@
 <template>
+  <NavBar
+    :title="title"
+    :subtitle="subtitle"
+    :user="user"
+    @toggle-sidebar="setSideBarActive"
+  />
   <div class="app-container">
-    <NavBar
-      :title="title"
-      :subtitle="subtitle"
-      :user="user"
-      @toggle-sidebar="setSideBarActive"
-    />
     <div :class="['app-components', { active: isSideBarActive }]">
       <SideBar :isActive="isSideBarActive" :activeSpan="4" />
       <div class="appPage-searchBar">
@@ -234,8 +234,8 @@ export default {
     },
     launchConfetti() {
       confetti({
-        particleCount: 400,
-        spread: 200,
+        particleCount: 90,
+        spread: 70,
         origin: {
           y:0.7
         }
