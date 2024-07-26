@@ -17,20 +17,21 @@
           <div class="image-and-subscribeContainer">
             <div class="image-container">
               <img :src="uber" alt="" />
+              Uber
             </div>
             <div class="subscribe-button">
               <input
-                v-if="!isSubscribed"
+                v-if="!uberSubscribed"
                 type="button"
                 value="Unsubscribe"
-                @click="toggleSubscription"
+                @click="toggleSubscription('uberSubscribed')"
               />
               <input
                 v-else
                 type="button"
                 value="Subscribe"
                 id="subscribed"
-                @click="toggleSubscription"
+                @click="toggleSubscription('uberSubscribed')"
               />
             </div>
           </div>
@@ -44,20 +45,21 @@
           <div class="image-and-subscribeContainer">
             <div class="image-container">
               <img :src="doorDash" alt="" />
+              doorDash
             </div>
             <div class="subscribe-button">
               <input
-                v-if="!isSubscribed"
+                v-if="!doorDashSubscribed"
                 type="button"
                 value="Unsubscribe"
-                @click="toggleSubscription"
+                @click="toggleSubscription('doorDashSubscribed')"
               />
               <input
                 v-else
                 type="button"
                 value="Subscribe"
                 id="subscribed"
-                @click="toggleSubscription"
+                @click="toggleSubscription('doorDashSubscribed')"
               />
             </div>
           </div>
@@ -71,20 +73,21 @@
           <div class="image-and-subscribeContainer">
             <div class="image-container">
               <img :src="google" alt="" />
+              Google
             </div>
             <div class="subscribe-button">
               <input
-                v-if="!isSubscribed"
+                v-if="!googleSubscribed"
                 type="button"
                 value="Unsubscribe"
-                @click="toggleSubscription"
+                @click="toggleSubscription('googleSubscribed')"
               />
               <input
                 v-else
                 type="button"
                 value="Subscribe"
                 id="subscribed"
-                @click="toggleSubscription"
+                @click="toggleSubscription('googleSubscribed')"
               />
             </div>
           </div>
@@ -98,20 +101,21 @@
           <div class="image-and-subscribeContainer">
             <div class="image-container">
               <img :src="tripAdvisor" alt="" />
+              TripAdvisor
             </div>
             <div class="subscribe-button">
               <input
-                v-if="!isSubscribed"
+                v-if="!tripAdvisorSubscribed"
                 type="button"
                 value="Unsubscribe"
-                @click="toggleSubscription"
+                @click="toggleSubscription('tripAdvisorSubscribed')"
               />
               <input
                 v-else
                 type="button"
                 value="Subscribe"
                 id="subscribed"
-                @click="toggleSubscription"
+                @click="toggleSubscription('tripAdvisorSubscribed')"
               />
             </div>
           </div>
@@ -125,6 +129,7 @@
           <div class="image-and-subscribeContainer">
             <div class="image-container">
               <img :src="skipTheDishes" alt="" />
+              skipTheDishes
             </div>
             <div class="subscribe-button">
               <input
@@ -152,20 +157,21 @@
           <div class="image-and-subscribeContainer">
             <div class="image-container">
               <img :src="facebook" alt="" />
+              Facebook
             </div>
             <div class="subscribe-button">
               <input
-                v-if="!isSubscribed"
+                v-if="!facebookSubscribed"
                 type="button"
                 value="Unsubscribe"
-                @click="toggleSubscription"
+                @click="toggleSubscription('facebookSubscribed')"
               />
               <input
                 v-else
                 type="button"
                 value="Subscribe"
                 id="subscribed"
-                @click="toggleSubscription"
+                @click="toggleSubscription('facebookSubscribed')"
               />
             </div>
           </div>
@@ -208,6 +214,12 @@ export default {
       doorDash: doorDash,
       skipTheDishes: skipTheDishes,
       facebook:facebook,
+      uberSubscribed:false,
+      doorDashSubscribed:false,
+      googleSubscribed:false,
+      tripAdvisorSubscribed:false,
+      skipTheDishesSubscribed:false,
+      facebookSubscribed:false,
       isSubscribed: false,
     };
   },
@@ -215,8 +227,8 @@ export default {
     setSideBarActive() {
       this.isSideBarActive = !this.isSideBarActive;
     },
-    toggleSubscription() {
-      this.isSubscribed = !this.isSubscribed;
+    toggleSubscription(subscriptionKey) {
+      this[subscriptionKey] = !this[subscriptionKey]
     },
   },
 };
