@@ -1,12 +1,13 @@
-.app-container{
+.app-container {
     height: 100vh;
-    width: 100%;    
+    width: 100%;
     margin-top: 7rem;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.app-components{
+
+.app-components {
     height: 100%;
     width: 100%;
     background-color: var(--white);
@@ -19,11 +20,13 @@
     flex-direction: column;
     gap: 2rem;
 }
-.app-components.active{
-    border-radius:10px 0 0 0 ;
+
+.app-components.active {
+    border-radius: 10px 0 0 0;
     margin-left: 19%;
 }
-.appPage-searchBar{
+
+.appPage-searchBar {
     height: 3rem;
     width: 21rem;
     border: solid 1.8px #4285F459;
@@ -35,10 +38,12 @@
     box-sizing: border-box;
     padding: 0.8rem;
 }
-.appPage-searchBar .bi-search{
+
+.appPage-searchBar .bi-search {
     font-size: 1.3rem;
 }
-.appPage-searchBar input[type="text"]{
+
+.appPage-searchBar input[type="text"] {
     width: 100%;
     height: 100%;
     border: none;
@@ -48,7 +53,8 @@
     font-size: 1rem;
     font-weight: 300;
 }
-.apps-select-container{
+
+.apps-select-container {
     width: 100%;
     height: 10rem;
     flex-wrap: wrap;
@@ -57,7 +63,13 @@
     justify-content: space-evenly;
     gap: 1.5rem;
 }
-.uber,.doorDash,.appGoogle,.tripAdvisor,.skipTheDishes,.faceBook{
+
+.uber,
+.doorDash,
+.appGoogle,
+.tripAdvisor,
+.skipTheDishes,
+.faceBook {
     height: 10rem;
     flex: 1 1 30%;
     background-color: var(--bodyBg);
@@ -70,20 +82,47 @@
     padding: 0.6rem;
     cursor: pointer;
 }
-.image-and-subscribeContainer{
+
+.image-and-subscribeContainer {
     height: 53%;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.uber{
+
+.uber {
     background-color: #0000000D;
     border: 1.8px solid #00000059;
 }
 
-.image-and-subscribeContainer .image-container{
-    height:100%;
+.doorDash {
+    background-color: #E942350D;
+    border: 1.8px solid #E9423559;
+}
+
+.appGoogle {
+    border: 1.8px solid #FABB0559;
+    background-color: #FABB050D;
+}
+
+.tripAdvisor {
+    background-color: #34A8530D;
+    border: 1.8px solid #34A85359;
+}
+
+.skipTheDishes {
+    background-color: #FABB050D;
+    border: 1.8px solid #FABB0559;
+}
+
+.faceBook {
+    background-color: #4285F40D;
+    border: 1.8px solid #4285F459;
+}
+
+.image-and-subscribeContainer .image-container {
+    height: 100%;
     width: 30%;
     display: flex;
     align-items: center;
@@ -92,16 +131,19 @@
     padding: 0.6rem;
 
 }
-.image-and-subscribeContainer .image-container img{
+
+.image-and-subscribeContainer .image-container img {
     height: 100%;
     width: 100%;
     object-fit: contain;
 }
-.image-and-subscribeContainer .subscribe-button{
+
+.image-and-subscribeContainer .subscribe-button {
     height: 100%;
     width: 30%;
 }
-.image-and-subscribeContainer .subscribe-button input[type="button"]{
+
+.image-and-subscribeContainer .subscribe-button input[type="button"] {
     height: 38%;
     width: 100%;
     background-color: #4285F41A;
@@ -111,13 +153,19 @@
     font-weight: 300;
     font-size: 0.9rem;
     cursor: pointer;
-
 }
-#subscribed{
+
+#subscribed {
     background-color: #4285F4;
     color: var(--white);
 }
-.uber .description-box{
+
+.uber .description-box,
+.doorDash .description-box,
+.appGoogle .description-box,
+.tripAdvisor .description-box,
+.skipTheDishes .description-box,
+.faceBook .description-box {
     height: 50%;
     width: 90%;
     box-sizing: border-box;

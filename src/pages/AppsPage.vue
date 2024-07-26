@@ -40,11 +40,141 @@
             </p>
           </div>
         </div>
-        <div class="doorDash">doordash</div>
-        <div class="appGoogle">google</div>
-        <div class="tripAdvisor">trip advisor</div>
-        <div class="skipTheDishes">skip the dishes</div>
-        <div class="faceBook">facebook</div>
+        <div class="doorDash">
+          <div class="image-and-subscribeContainer">
+            <div class="image-container">
+              <img :src="doorDash" alt="" />
+            </div>
+            <div class="subscribe-button">
+              <input
+                v-if="!isSubscribed"
+                type="button"
+                value="Unsubscribe"
+                @click="toggleSubscription"
+              />
+              <input
+                v-else
+                type="button"
+                value="Subscribe"
+                id="subscribed"
+                @click="toggleSubscription"
+              />
+            </div>
+          </div>
+          <div class="description-box">
+            <p>
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem...
+            </p>
+          </div>
+        </div>
+        <div class="appGoogle">
+          <div class="image-and-subscribeContainer">
+            <div class="image-container">
+              <img :src="google" alt="" />
+            </div>
+            <div class="subscribe-button">
+              <input
+                v-if="!isSubscribed"
+                type="button"
+                value="Unsubscribe"
+                @click="toggleSubscription"
+              />
+              <input
+                v-else
+                type="button"
+                value="Subscribe"
+                id="subscribed"
+                @click="toggleSubscription"
+              />
+            </div>
+          </div>
+          <div class="description-box">
+            <p>
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem...
+            </p>
+          </div>
+        </div>
+        <div class="tripAdvisor">
+          <div class="image-and-subscribeContainer">
+            <div class="image-container">
+              <img :src="tripAdvisor" alt="" />
+            </div>
+            <div class="subscribe-button">
+              <input
+                v-if="!isSubscribed"
+                type="button"
+                value="Unsubscribe"
+                @click="toggleSubscription"
+              />
+              <input
+                v-else
+                type="button"
+                value="Subscribe"
+                id="subscribed"
+                @click="toggleSubscription"
+              />
+            </div>
+          </div>
+          <div class="description-box">
+            <p>
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem...
+            </p>
+          </div>
+        </div>
+        <div class="skipTheDishes">
+          <div class="image-and-subscribeContainer">
+            <div class="image-container">
+              <img :src="skipTheDishes" alt="" />
+            </div>
+            <div class="subscribe-button">
+              <input
+                v-if="!isSubscribed"
+                type="button"
+                value="Unsubscribe"
+                @click="toggleSubscription"
+              />
+              <input
+                v-else
+                type="button"
+                value="Subscribe"
+                id="subscribed"
+                @click="toggleSubscription"
+              />
+            </div>
+          </div>
+          <div class="description-box">
+            <p>
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem...
+            </p>
+          </div>
+        </div>
+        <div class="faceBook">
+          <div class="image-and-subscribeContainer">
+            <div class="image-container">
+              <img :src="facebook" alt="" />
+            </div>
+            <div class="subscribe-button">
+              <input
+                v-if="!isSubscribed"
+                type="button"
+                value="Unsubscribe"
+                @click="toggleSubscription"
+              />
+              <input
+                v-else
+                type="button"
+                value="Subscribe"
+                id="subscribed"
+                @click="toggleSubscription"
+              />
+            </div>
+          </div>
+          <div class="description-box">
+            <p>
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem...
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -55,6 +185,11 @@ import NavBar from "@/components/NavBar.vue";
 import "../style/appsPage.css";
 import SideBar from "@/components/SideBar.vue";
 import uber from "../assets/uber.svg";
+import doorDash from "../assets/doorDash.svg";
+import google from "../assets/google.svg";
+import tripAdvisor from "../assets/tripAdvisor.svg";
+import skipTheDishes from "../assets/skipTheDishes.svg";
+import facebook from '../assets/facebook.svg'
 export default {
   name: "AppsPage",
   components: {
@@ -68,6 +203,11 @@ export default {
       user: "Sandeep Sreekumar",
       isSideBarActive: true,
       uber: uber,
+      google: google,
+      tripAdvisor: tripAdvisor,
+      doorDash: doorDash,
+      skipTheDishes: skipTheDishes,
+      facebook:facebook,
       isSubscribed: false,
     };
   },
