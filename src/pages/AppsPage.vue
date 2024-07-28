@@ -13,25 +13,33 @@
         <input type="text" placeholder="Search" />
       </div>
       <div class="apps-select-container">
-        <div class="uber">
+        <div
+          class="app-card"
+          v-for="(company, index) in companies"
+          :key="index"
+          :style="{
+            backgroundColor: company.backGround,
+            border: company.border,
+          }"
+        >
           <div class="image-and-subscribeContainer">
             <div class="image-container">
-              <img :src="uber" alt="" />
-              Uber
+              <img :src="company.icon" alt="" />
+              {{ company.name }}
             </div>
             <div class="subscribe-button">
               <input
-                v-if="!uberSubscribed"
+                v-if="company.subscribed"
                 type="button"
                 value="Unsubscribe"
-                @click="toggleSubscription('uberSubscribed')"
+                @click="toggleSubscription(index)"
               />
               <input
                 v-else
                 type="button"
                 value="Subscribe"
                 id="subscribed"
-                @click="toggleSubscription('uberSubscribed')"
+                @click="toggleSubscription(index)"
               />
             </div>
           </div>
@@ -41,147 +49,6 @@
             </p>
           </div>
         </div>
-        <div class="doorDash">
-          <div class="image-and-subscribeContainer">
-            <div class="image-container">
-              <img :src="doorDash" alt="" />
-              doorDash
-            </div>
-            <div class="subscribe-button">
-              <input
-                v-if="!doorDashSubscribed"
-                type="button"
-                value="Unsubscribe"
-                @click="toggleSubscription('doorDashSubscribed')"
-              />
-              <input
-                v-else
-                type="button"
-                value="Subscribe"
-                id="subscribed"
-                @click="toggleSubscription('doorDashSubscribed')"
-              />
-            </div>
-          </div>
-          <div class="description-box">
-            <p>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem...
-            </p>
-          </div>
-        </div>
-        <div class="appGoogle">
-          <div class="image-and-subscribeContainer">
-            <div class="image-container">
-              <img :src="google" alt="" />
-              Google
-            </div>
-            <div class="subscribe-button">
-              <input
-                v-if="!googleSubscribed"
-                type="button"
-                value="Unsubscribe"
-                @click="toggleSubscription('googleSubscribed')"
-              />
-              <input
-                v-else
-                type="button"
-                value="Subscribe"
-                id="subscribed"
-                @click="toggleSubscription('googleSubscribed')"
-              />
-            </div>
-          </div>
-          <div class="description-box">
-            <p>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem...
-            </p>
-          </div>
-        </div>
-        <div class="tripAdvisor">
-          <div class="image-and-subscribeContainer">
-            <div class="image-container">
-              <img :src="tripAdvisor" alt="" />
-              TripAdvisor
-            </div>
-            <div class="subscribe-button">
-              <input
-                v-if="!tripAdvisorSubscribed"
-                type="button"
-                value="Unsubscribe"
-                @click="toggleSubscription('tripAdvisorSubscribed')"
-              />
-              <input
-                v-else
-                type="button"
-                value="Subscribe"
-                id="subscribed"
-                @click="toggleSubscription('tripAdvisorSubscribed')"
-              />
-            </div>
-          </div>
-          <div class="description-box">
-            <p>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem...
-            </p>
-          </div>
-        </div>
-        <div class="skipTheDishes">
-          <div class="image-and-subscribeContainer">
-            <div class="image-container">
-              <img :src="skipTheDishes" alt="" />
-              skipTheDishes
-            </div>
-            <div class="subscribe-button">
-              <input
-                v-if="!skipTheDishesSubscribed"
-                type="button"
-                value="Unsubscribe"
-                @click="toggleSubscription('skipTheDishesSubscribed')"
-              />
-              <input
-                v-else
-                type="button"
-                value="Subscribe"
-                id="subscribed"
-                @click="toggleSubscription('skipTheDishesSubscribed')"
-              />
-            </div>
-          </div>
-          <div class="description-box">
-            <p>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem...
-            </p>
-          </div>
-        </div>
-        <div class="faceBook">
-          <div class="image-and-subscribeContainer">
-            <div class="image-container">
-              <img :src="facebook" alt="" />
-              Facebook
-            </div>
-            <div class="subscribe-button">
-              <input
-                v-if="!facebookSubscribed"
-                type="button"
-                value="Unsubscribe"
-                @click="toggleSubscription('facebookSubscribed')"
-              />
-              <input
-                v-else
-                type="button"
-                value="Subscribe"
-                id="subscribed"
-                @click="toggleSubscription('facebookSubscribed')"
-              />
-            </div>
-          </div>
-          <div class="description-box">
-            <p>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem...
-            </p>
-          </div>
-        </div>
-        
       </div>
     </div>
   </div>
@@ -189,7 +56,7 @@
 
 <script>
 import NavBar from "@/components/NavBar.vue";
-import confetti from 'canvas-confetti';
+import confetti from "canvas-confetti";
 import "../style/appsPage.css";
 import SideBar from "@/components/SideBar.vue";
 import uber from "../assets/uber.svg";
@@ -197,7 +64,7 @@ import doorDash from "../assets/doorDash.svg";
 import google from "../assets/google.svg";
 import tripAdvisor from "../assets/tripAdvisor.svg";
 import skipTheDishes from "../assets/skipTheDishes.svg";
-import facebook from '../assets/facebook.svg'
+import facebook from "../assets/facebook.svg";
 export default {
   name: "AppsPage",
   components: {
@@ -215,31 +82,75 @@ export default {
       tripAdvisor: tripAdvisor,
       doorDash: doorDash,
       skipTheDishes: skipTheDishes,
-      facebook:facebook,
-      uberSubscribed:true,
-      doorDashSubscribed:true,
-      googleSubscribed:true,
-      tripAdvisorSubscribed:true,
-      skipTheDishesSubscribed:true,
-      facebookSubscribed:true,
+      facebook: facebook,
+      uberSubscribed: true,
+      doorDashSubscribed: true,
+      googleSubscribed: true,
+      tripAdvisorSubscribed: true,
+      skipTheDishesSubscribed: true,
+      facebookSubscribed: true,
       isSubscribed: true,
+      companies: [
+        {
+          name: "uber",
+          subscribed: false,
+          icon: uber,
+          backGround: "#0000000D",
+          border: "1.8px solid #00000059",
+        },
+        {
+          name: "doorDash",
+          subscribed: false,
+          icon: doorDash,
+          backGround: "#E942350D",
+          border: "1.8px solid #E9423559",
+        },
+        {
+          name: "Google",
+          subscribed: false,
+          icon: google,
+          backGround: "#FABB050D",
+          border: "1.8px solid #FABB0559",
+        },
+        {
+          name: "tripAdvisor",
+          subscribed: false,
+          icon: tripAdvisor,
+          backGround: "#34A8530D",
+          border: "1.8px solid #34A85359",
+        },
+        {
+          name: "skipTheDishes",
+          subscribed: false,
+          icon: skipTheDishes,
+          backGround: "#FABB050D",
+          border: "1.8px solid #FABB0559",
+        },
+        {
+          name: "facebook",
+          subscribed: false,
+          icon: facebook,
+          backGround: "#4285F40D",
+          border: "1.8px solid #4285F459",
+        },
+      ],
     };
   },
   methods: {
     setSideBarActive() {
       this.isSideBarActive = !this.isSideBarActive;
     },
-    toggleSubscription(subscriptionKey) {
-      this[subscriptionKey] = !this[subscriptionKey]
-      this[subscriptionKey]!=true?this.launchConfetti() : '';
+    toggleSubscription(index) {
+      this.companies[index].subscribed = !this.companies[index].subscribed;
+      this.companies[index].subscribed ? this.launchConfetti() : "";
     },
     launchConfetti() {
       confetti({
         particleCount: 90,
         spread: 70,
         origin: {
-          y:0.7
-        }
+          y: 0.7,
+        },
       });
     },
   },
