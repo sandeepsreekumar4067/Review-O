@@ -181,6 +181,7 @@
             </p>
           </div>
         </div>
+        
       </div>
     </div>
   </div>
@@ -215,13 +216,13 @@ export default {
       doorDash: doorDash,
       skipTheDishes: skipTheDishes,
       facebook:facebook,
-      uberSubscribed:false,
-      doorDashSubscribed:false,
-      googleSubscribed:false,
-      tripAdvisorSubscribed:false,
-      skipTheDishesSubscribed:false,
-      facebookSubscribed:false,
-      isSubscribed: false,
+      uberSubscribed:true,
+      doorDashSubscribed:true,
+      googleSubscribed:true,
+      tripAdvisorSubscribed:true,
+      skipTheDishesSubscribed:true,
+      facebookSubscribed:true,
+      isSubscribed: true,
     };
   },
   methods: {
@@ -230,7 +231,7 @@ export default {
     },
     toggleSubscription(subscriptionKey) {
       this[subscriptionKey] = !this[subscriptionKey]
-      this[subscriptionKey]!=false?this.launchConfetti() : '';
+      this[subscriptionKey]!=true?this.launchConfetti() : '';
     },
     launchConfetti() {
       confetti({
