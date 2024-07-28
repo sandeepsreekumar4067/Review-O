@@ -27,7 +27,9 @@
         </div>
       </div>
       <input type="text" placeholder="Email Address" class="email-input" />
-      <input type="button" value="Login" />
+      <div class="login-input-container">
+        <input type="button" value="Login" />
+      </div>
     </div>
   </div>
 </template>
