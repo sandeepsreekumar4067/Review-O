@@ -45,7 +45,7 @@
           </div>
           <div class="description-box">
             <p>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem...
+              {{ company.description }}
             </p>
           </div>
         </div>
@@ -65,6 +65,7 @@ import google from "../assets/google.svg";
 import tripAdvisor from "../assets/tripAdvisor.svg";
 import skipTheDishes from "../assets/skipTheDishes.svg";
 import facebook from "../assets/facebook.svg";
+import yelp from "../assets/yelp.svg";
 export default {
   name: "AppsPage",
   components: {
@@ -83,12 +84,7 @@ export default {
       doorDash: doorDash,
       skipTheDishes: skipTheDishes,
       facebook: facebook,
-      uberSubscribed: true,
-      doorDashSubscribed: true,
-      googleSubscribed: true,
-      tripAdvisorSubscribed: true,
-      skipTheDishesSubscribed: true,
-      facebookSubscribed: true,
+      yelp: yelp,
       isSubscribed: true,
       companies: [
         {
@@ -97,6 +93,8 @@ export default {
           icon: uber,
           backGround: "#0000000D",
           border: "1.8px solid #00000059",
+          description:
+            " Sed ut perspiciatis unde omnis iste natus error sit voluptatem...",
         },
         {
           name: "doorDash",
@@ -104,6 +102,8 @@ export default {
           icon: doorDash,
           backGround: "#E942350D",
           border: "1.8px solid #E9423559",
+          description:
+            " Sed ut perspiciatis unde omnis iste natus error sit voluptatem...",
         },
         {
           name: "Google",
@@ -111,6 +111,8 @@ export default {
           icon: google,
           backGround: "#FABB050D",
           border: "1.8px solid #FABB0559",
+          description:
+            " Sed ut perspiciatis unde omnis iste natus error sit voluptatem...",
         },
         {
           name: "tripAdvisor",
@@ -118,6 +120,8 @@ export default {
           icon: tripAdvisor,
           backGround: "#34A8530D",
           border: "1.8px solid #34A85359",
+          description:
+            " Sed ut perspiciatis unde omnis iste natus error sit voluptatem...",
         },
         {
           name: "skipTheDishes",
@@ -125,6 +129,8 @@ export default {
           icon: skipTheDishes,
           backGround: "#FABB050D",
           border: "1.8px solid #FABB0559",
+          description:
+            " Sed ut perspiciatis unde omnis iste natus error sit voluptatem...",
         },
         {
           name: "facebook",
@@ -132,6 +138,17 @@ export default {
           icon: facebook,
           backGround: "#4285F40D",
           border: "1.8px solid #4285F459",
+          description:
+            " Sed ut perspiciatis unde omnis iste natus error sit voluptatem...",
+        },
+        {
+          name: "yelp",
+          subscribed: false,
+          icon: yelp,
+          backGround: "#FFC3000D",
+          border: "1.8px solid #FFC30059",
+          description:
+            " Sed ut perspiciatis unde omnis iste natus error sit voluptatem...",
         },
       ],
     };
