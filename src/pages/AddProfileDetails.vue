@@ -27,12 +27,12 @@
             {{ timezone.value }}
           </option>
         </select>
-        <select name="role" id="role">
+        <select name="role" id="role" disabled>
           <option value="all scopes">All role</option>
           <!-- <option value="role 1">role 1</option>
           <option value="role 2">role 2</option> -->
         </select>
-        <select name="scope" id="scope">
+        <select name="scope" id="scope" disabled>
           <option value="all scopes">All Scope</option>
           <!-- <option value="scope 1">scope 1</option>
           <option value="scope 2">scope 2</option> -->

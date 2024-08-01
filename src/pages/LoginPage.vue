@@ -28,7 +28,7 @@
       </div>
       <input type="text" placeholder="Email Address" class="email-input" />
       <div class="login-input-container">
-        <input type="button" value="Login" @click="()=>{this.$router.replace('/dash-board')}"/>
+        <input type="button" value="Login" @click="()=>{this.$router.replace('/new-profile')}"/>
       </div>
     </div>
   </div>
