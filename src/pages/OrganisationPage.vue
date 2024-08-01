@@ -7,7 +7,7 @@
       @toggle-sidebar="setSideBarActive"
     />
     <div class="organisation-container">
-      <SideBar :isActive="isSideBarActive" />
+      <SideBar :isActive="isSideBarActive" :activeSpan="2" />
       <div :class="['organisation-components', { active: isSideBarActive }]">
         <div class="branches-grid">
           <div v-for="(branch, index) in paginatedBranches" :key="index" class="branch">

@@ -145,8 +145,8 @@ export default {
           name: "yelp",
           subscribed: false,
           icon: yelp,
-          backGround: "#FFC3000D",
-          border: "1.8px solid #FFC30059",
+          backGround: "#F5EEF2",
+          border: "1.8px solid #F2C2C3",
           description:
             " Sed ut perspiciatis unde omnis iste natus error sit voluptatem...",
         },

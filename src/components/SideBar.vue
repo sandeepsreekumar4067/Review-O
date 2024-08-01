@@ -5,7 +5,7 @@
         <i class="bi bi-columns-gap"></i>
         <p>Dashboard</p>
       </span>
-      <span :class="{ active: activeSpan === 2 }" @click="setActive('/add-organisation')">
+      <span :class="{ active: activeSpan === 2 }" @click="setActive('/organisation')">
         <i class="bi bi-layers"></i>
         <p>Organisations</p>
       </span>
