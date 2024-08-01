@@ -44,7 +44,7 @@ export default {
   },
   methods: {
     setActive(route) {
-      this.$router.push(route)
+      this.$router.replace(route)
     }
   }
 };
