@@ -9,8 +9,21 @@
     <div class="organisation-container">
       <SideBar :isActive="isSideBarActive" :activeSpan="2" />
       <div :class="['organisation-components', { active: isSideBarActive }]">
-        <div class="organisation-search-bar-container">
-
+        <div class="organisation-searchBar-and-addContainer">
+          <div class="addOrganisation-searchBar">
+            <i class="bi bi-search"></i>
+            <input type="text" placeholder="Search">
+          </div>
+          <div class="organisation-Adding-and-filtering-container">
+            <div id="addOrganisation">
+              <i class="bi bi-plus-circle"></i>
+              <p>Add Organisation</p>
+            </div>
+            <div id="filter">
+              <i class="bi bi-sliders"></i>
+              <p>Filter</p>
+            </div>
+          </div>
         </div>
         <div class="branches-grid">
           <div v-for="(branch, index) in paginatedBranches" :key="index" class="branch">
