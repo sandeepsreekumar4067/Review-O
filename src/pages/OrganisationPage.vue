@@ -27,9 +27,21 @@
         </div>
         <div class="branches-grid">
           <div v-for="(branch, index) in paginatedBranches" :key="index" class="branch">
-            <h3>{{ branch.officeName }}</h3>
+            <div class="branchOffice-imageContainer">
+
+            </div>
+            <div class="branch-details">
+              <div class="branch-title">
+
+              </div>
+              <div class="branch-location-and-users">
+                
+              </div>
+            </div>
+
+            <!-- <h3>{{ branch.officeName }}</h3>
             <p>Location: {{ branch.location }}</p>
-            <p>Number of Users: {{ branch.numberOfUsers }}</p>
+            <p>Number of Users: {{ branch.numberOfUsers }}</p> -->
           </div>
         </div>
         <div class="pagination">
