@@ -32,7 +32,7 @@
       </div>
       <div class="addOrganisation-submit-container">
           <input type="button" value="Cancel">
-          <input type="button" value="Save" id="save">
+          <input type="button" value="Save" id="save" @click="()=>{this.$router.replace('/organisation')}">
         </div>
       <SideBar :isActive="isSidebarActive" :activeSpan="2"/>
     </div>
