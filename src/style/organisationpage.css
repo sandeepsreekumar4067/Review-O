@@ -1,77 +1,89 @@
 .organisation-container {
-    margin-top: 7rem;
-    height: auto;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+  margin-top: 7rem;
+  height: auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.organisation-components {
+  width: 100%;
+  height: 100%;
+  transition: 0.4s;
+  box-sizing: border-box;
+  padding: 1rem;
+  background-color: var(--white);
+  gap: 1rem;
+  display: flex;
   
-  .organisation-components {
-    width: 100%;
-    height: 100%;
-    transition: 0.4s;
-    box-sizing: border-box;
-    padding: 1rem;
-    background-color: var(--white);
-  }
-  
-  .organisation-components.active {
-    margin-left: 19%;
-    border-radius: 10px 0 0 0;
-  }
-  
+  flex-direction: column;
+}
+
+.organisation-components.active {
+  margin-left: 19%;
+  border-radius: 10px 0 0 0;
+}
+
+.organisation-search-bar-container{
+  height: 3rem;
+  width: 100%;
+  background-color: red;
+}
+
+.branches-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, auto);
+  gap: 1rem;
+}
+
+.branch {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  transition: 0.4s;
+  margin-top: 20px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  box-sizing: border-box;
+  padding: 1rem;
+}
+
+.pagination button {
+  padding: 5px 10px;
+  transition: 0.4s;
+  margin: 0 5px;
+}
+
+.pagination span {
+  margin: 0 5px;
+  padding: 5px 10px;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.pagination span.active {
+  background-color: #4285F4;
+  color: white;
+  border-radius: 5px;
+}
+
+@media screen and (max-width:800px) {
   .branches-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(4, auto);
-    gap:1rem;
-  }
-  
-  .branch {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    background-color: #fff;
-  }
-  
-  .pagination {
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    transition: 0.4s;
-    margin-top: 20px;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    box-sizing: border-box;
-    padding: 1rem;
+    flex-direction: column;
   }
-  
-  .pagination button {
-    padding: 5px 10px;
-    transition: 0.4s;
-    margin: 0 5px;
+
+  .branch {
+    width: 100%;
   }
-  
-  .pagination span {
-    margin: 0 5px;
-    padding: 5px 10px;
-    transition: 0.4s;
-    cursor: pointer;
-  }
-  
-  .pagination span.active {
-    background-color: #4285F4;
-    color: white;
-    border-radius: 5px;
-  }
-  @media screen and (max-width:800px) {
-    .branches-grid{
-        display: flex;
-        flex-direction: column;
-    }
-    .branch{
-        width: 100%;
-    }
-  }
+}

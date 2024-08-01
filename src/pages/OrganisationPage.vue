@@ -9,6 +9,9 @@
     <div class="organisation-container">
       <SideBar :isActive="isSideBarActive" :activeSpan="2" />
       <div :class="['organisation-components', { active: isSideBarActive }]">
+        <div class="organisation-search-bar-container">
+
+        </div>
         <div class="branches-grid">
           <div v-for="(branch, index) in paginatedBranches" :key="index" class="branch">
             <h3>{{ branch.officeName }}</h3>
