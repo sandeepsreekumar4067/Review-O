@@ -32,10 +32,11 @@
             </div>
             <div class="branch-details">
               <div class="branch-title">
-
+                {{ branch.officeName }}
               </div>
-              <div class="branch-location-and-users">
-                
+              <div class="branch-location">
+                <i class="bi bi-geo-alt"></i>
+                {{ branch.location }}
               </div>
             </div>
 
