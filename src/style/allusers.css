@@ -1,0 +1,22 @@
+.allUsers-container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 7rem;
+}
+.allUsers-components{
+    background-color: var(--white);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    transition: 0.4s;
+    justify-content: center;
+
+}
+.allUsers-components.active{
+    margin-left: 19%;
+    border-radius: 10px 0 0 0;
+}
