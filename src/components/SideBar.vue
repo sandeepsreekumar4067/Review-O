@@ -1,7 +1,7 @@
 <template>
   <div :class="['sidebar-container',{active : isActive}]" >
     <div class="sidebar-components">
-        <span :class="{ active: activeSpan === 1 }" @click="setActive('/')">
+        <span :class="{ active: activeSpan === 1 }" @click="setActive('/dash-board')">
         <i class="bi bi-columns-gap"></i>
         <p>Dashboard</p>
       </span>

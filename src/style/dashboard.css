@@ -4,9 +4,21 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 7rem;
+
 }
 .dashBoard-components{
     background-color: var(--white);
     height: 100%;
     width: 100%;
+    transition: 0.4s;
+    box-sizing: border-box;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.dashBoard-components.active{
+    margin-left: 19%;
+    border-radius: 10px 0 0 0;
 }

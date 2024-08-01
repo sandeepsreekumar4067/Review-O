@@ -1,8 +1,9 @@
 <template>
   <div class="dashBoard-container">
     <NavBar :title="title" :subtitle="subtitle" :user="user" @toggle-sidebar="setSidebarActive"/>
-    <div class="dashBoard-components">
+    <div :class="['dashBoard-components',{active:isSidebarActive}]">
         <SideBar :isActive="isSidebarActive" :activeSpan="1"/>
+        DashBoard
     </div>
   </div>
 </template>
