@@ -88,6 +88,10 @@
     background-color: var(--blue);
     border: none;
     color: var(--white);
+    transition: 0.4s;
+}
+#save:active{
+    scale: 0.9;
 }
 
 @media screen and (max-width:300px) {
