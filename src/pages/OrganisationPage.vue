@@ -32,7 +32,7 @@
             class="branch"
           >
             <div class="branchOffice-imageContainer">
-              <img :src="branch.OfficeImage" alt="">
+              <img :src="branch.OfficeImage" alt="" />
             </div>
             <div class="branch-details">
               <div class="branch-title">
@@ -54,19 +54,27 @@
           </div>
         </div>
         <div class="pagination">
-          <button @click="prevPage" :disabled="currentPage === 1">
-            Previous
-          </button>
-          <span
-            v-for="page in visiblePages"
-            :key="page"
-            @click="goToPage(page)"
-            :class="{ active: currentPage === page }"
-            >{{ page }}</span
-          >
-          <button @click="nextPage" :disabled="currentPage === totalPages">
-            Next
-          </button>
+          <div class="record-number">
+            <p>
+              Showing {{ displayStart }} - {{ displayEnd }} of
+              {{ branches.length }} records
+            </p>
+          </div>
+          <div>
+            <span @click="prevPage" :disabled="currentPage === 1">
+              <i class="bi bi-chevron-left"></i>
+            </span>
+            <span
+              v-for="page in visiblePages"
+              :key="page"
+              @click="goToPage(page)"
+              :class="{ active: currentPage === page }"
+              >{{ page }}</span
+            >
+            <span @click="nextPage" :disabled="currentPage === totalPages">
+              <i class="bi bi-chevron-right"></i>
+            </span>
+          </div>
         </div>
       </div>
     </div>
@@ -131,6 +139,15 @@ export default {
       }
       return pages;
     },
+    displayStart() {
+      return (this.currentPage - 1) * this.branchesPerPage + 1;
+    },
+    displayEnd() {
+      return Math.min(
+        this.currentPage * this.branchesPerPage,
+        this.branches.length
+      );
+    },
   },
   methods: {
     setSideBarActive() {
@@ -163,47 +180,247 @@ export default {
     fetchBranches() {
       // Simulate an API call
       this.branches = [
-  { officeName: "Vancouver Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 12, OfficeImage: office5 },
-  { officeName: "Toronto Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 9, OfficeImage: office2 },
-  { officeName: "Regional Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 17, OfficeImage: office1 },
-  { officeName: "Support Desk", location: "Vancouver, British Columbia, Canada", numberOfUsers: 14, OfficeImage: office3 },
-  { officeName: "Vancouver Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 8, OfficeImage: office7 },
-  { officeName: "Toronto Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 19, OfficeImage: office6 },
-  { officeName: "Regional Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 15, OfficeImage: office4 },
-  { officeName: "Support Desk", location: "Vancouver, British Columbia, Canada", numberOfUsers: 10, OfficeImage: office7 },
-  { officeName: "Vancouver Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 20, OfficeImage: office2 },
-  { officeName: "Toronto Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 11, OfficeImage: noOffice },
-  { officeName: "Regional Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 7, OfficeImage: office1 },
-  { officeName: "Support Desk", location: "Vancouver, British Columbia, Canada", numberOfUsers: 16, OfficeImage: office5 },
-  { officeName: "Vancouver Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 13, OfficeImage: office4 },
-  { officeName: "Toronto Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 6, OfficeImage: office3 },
-  { officeName: "Regional Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 18, OfficeImage: office7 },
-  { officeName: "Support Desk", location: "Vancouver, British Columbia, Canada", numberOfUsers: 5, OfficeImage: office6 },
-  { officeName: "Vancouver Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 14, OfficeImage: office7 },
-  { officeName: "Toronto Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 11, OfficeImage: office5 },
-  { officeName: "Regional Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 4, OfficeImage: office2 },
-  { officeName: "Support Desk", location: "Vancouver, British Columbia, Canada", numberOfUsers: 10, OfficeImage: office3 },
-  { officeName: "Vancouver Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 9, OfficeImage: noOffice },
-  { officeName: "Toronto Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 17, OfficeImage: office4 },
-  { officeName: "Regional Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 8, OfficeImage: office7 },
-  { officeName: "Support Desk", location: "Vancouver, British Columbia, Canada", numberOfUsers: 19, OfficeImage: office1 },
-  { officeName: "Vancouver Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 13, OfficeImage: office6 },
-  { officeName: "Toronto Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 15, OfficeImage: office7 },
-  { officeName: "Regional Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 2, OfficeImage: office5 },
-  { officeName: "Support Desk", location: "Vancouver, British Columbia, Canada", numberOfUsers: 20, OfficeImage: office4 },
-  { officeName: "Vancouver Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 12, OfficeImage: office7 },
-  { officeName: "Toronto Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 6, OfficeImage: office3 },
-  { officeName: "Regional Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 18, OfficeImage: noOffice },
-  { officeName: "Support Desk", location: "Vancouver, British Columbia, Canada", numberOfUsers: 11, OfficeImage: office2 },
-  { officeName: "Vancouver Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 14, OfficeImage: office1 },
-  { officeName: "Toronto Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 16, OfficeImage: office6 },
-  { officeName: "Regional Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 5, OfficeImage: office7 },
-  { officeName: "Support Desk", location: "Vancouver, British Columbia, Canada", numberOfUsers: 3, OfficeImage: office5 },
-  { officeName: "Vancouver Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 17, OfficeImage: office4 },
-  { officeName: "Toronto Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 9, OfficeImage: office7 },
-  { officeName: "Regional Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 13, OfficeImage: office3 },
-  { officeName: "Support Desk", location: "Vancouver, British Columbia, Canada", numberOfUsers: 7, OfficeImage: office2 },
-];
+        {
+          officeName: "Vancouver Office",
+          location: "Vancouver, British Columbia, Canada",
+          numberOfUsers: 12,
+          OfficeImage: office5,
+        },
+        {
+          officeName: "Toronto Office",
+          location: "Vancouver, British Columbia, Canada",
+          numberOfUsers: 9,
+          OfficeImage: office2,
+        },
+        {
+          officeName: "Regional Office",
+          location: "Vancouver, British Columbia, Canada",
+          numberOfUsers: 17,
+          OfficeImage: office1,
+        },
+        {
+          officeName: "Support Desk",
+          location: "Vancouver, British Columbia, Canada",
+          numberOfUsers: 14,
+          OfficeImage: office3,
+        },
+        {
+          officeName: "Vancouver Office",
+          location: "Vancouver, British Columbia, Canada",
+          numberOfUsers: 8,
+          OfficeImage: office7,
+        },
+        {
+          officeName: "Toronto Office",
+          location: "Vancouver, British Columbia, Canada",
+          numberOfUsers: 19,
+          OfficeImage: office6,
+        },
+        {
+          officeName: "Regional Office",
+          location: "Vancouver, British Columbia, Canada",
+          numberOfUsers: 15,
+          OfficeImage: office4,
+        },
+        {
+          officeName: "Support Desk",
+          location: "Vancouver, British Columbia, Canada",
+          numberOfUsers: 10,
+          OfficeImage: office7,
+        },
+        {
+          officeName: "Vancouver Office",
+          location: "Vancouver, British Columbia, Canada",
+          numberOfUsers: 20,
+          OfficeImage: office2,
+        },
+        {
+          officeName: "Toronto Office",
+          location: "Vancouver, British Columbia, Canada",
+          numberOfUsers: 11,
+          OfficeImage: noOffice,
+        },
+        {
+          officeName: "Regional Office",
+          location: "Vancouver, British Columbia, Canada",
+          numberOfUsers: 7,
+          OfficeImage: office1,
+        },
+        {
+          officeName: "Support Desk",
+          location: "Vancouver, British Columbia, Canada",
+          numberOfUsers: 16,
+          OfficeImage: office5,
+        },
+        {
+          officeName: "Vancouver Office",
+          location: "Vancouver, British Columbia, Canada",
+          numberOfUsers: 13,
+          OfficeImage: office4,
+        },
+        {
+          officeName: "Toronto Office",
+          location: "Vancouver, British Columbia, Canada",
+          numberOfUsers: 6,
+          OfficeImage: office3,
+        },
+        {
+          officeName: "Regional Office",
+          location: "Vancouver, British Columbia, Canada",
+          numberOfUsers: 18,
+          OfficeImage: office7,
+        },
+        {
+          officeName: "Support Desk",
+          location: "Vancouver, British Columbia, Canada",
+          numberOfUsers: 5,
+          OfficeImage: office6,
+        },
+        {
+          officeName: "Vancouver Office",
+          location: "Vancouver, British Columbia, Canada",
+          numberOfUsers: 14,
+          OfficeImage: office7,
+        },
+        {
+          officeName: "Toronto Office",
+          location: "Vancouver, British Columbia, Canada",
+          numberOfUsers: 11,
+          OfficeImage: office5,
+        },
+        {
+          officeName: "Regional Office",
+          location: "Vancouver, British Columbia, Canada",
+          numberOfUsers: 4,
+          OfficeImage: office2,
+        },
+        {
+          officeName: "Support Desk",
+          location: "Vancouver, British Columbia, Canada",
+          numberOfUsers: 10,
+          OfficeImage: office3,
+        },
+        {
+          officeName: "Vancouver Office",
+          location: "Vancouver, British Columbia, Canada",
+          numberOfUsers: 9,
+          OfficeImage: noOffice,
+        },
+        {
+          officeName: "Toronto Office",
+          location: "Vancouver, British Columbia, Canada",
+          numberOfUsers: 17,
+          OfficeImage: office4,
+        },
+        {
+          officeName: "Regional Office",
+          location: "Vancouver, British Columbia, Canada",
+          numberOfUsers: 8,
+          OfficeImage: office7,
+        },
+        {
+          officeName: "Support Desk",
+          location: "Vancouver, British Columbia, Canada",
+          numberOfUsers: 19,
+          OfficeImage: office1,
+        },
+        {
+          officeName: "Vancouver Office",
+          location: "Vancouver, British Columbia, Canada",
+          numberOfUsers: 13,
+          OfficeImage: office6,
+        },
+        {
+          officeName: "Toronto Office",
+          location: "Vancouver, British Columbia, Canada",
+          numberOfUsers: 15,
+          OfficeImage: office7,
+        },
+        {
+          officeName: "Regional Office",
+          location: "Vancouver, British Columbia, Canada",
+          numberOfUsers: 2,
+          OfficeImage: office5,
+        },
+        {
+          officeName: "Support Desk",
+          location: "Vancouver, British Columbia, Canada",
+          numberOfUsers: 20,
+          OfficeImage: office4,
+        },
+        {
+          officeName: "Vancouver Office",
+          location: "Vancouver, British Columbia, Canada",
+          numberOfUsers: 12,
+          OfficeImage: office7,
+        },
+        {
+          officeName: "Toronto Office",
+          location: "Vancouver, British Columbia, Canada",
+          numberOfUsers: 6,
+          OfficeImage: office3,
+        },
+        {
+          officeName: "Regional Office",
+          location: "Vancouver, British Columbia, Canada",
+          numberOfUsers: 18,
+          OfficeImage: noOffice,
+        },
+        {
+          officeName: "Support Desk",
+          location: "Vancouver, British Columbia, Canada",
+          numberOfUsers: 11,
+          OfficeImage: office2,
+        },
+        {
+          officeName: "Vancouver Office",
+          location: "Vancouver, British Columbia, Canada",
+          numberOfUsers: 14,
+          OfficeImage: office1,
+        },
+        {
+          officeName: "Toronto Office",
+          location: "Vancouver, British Columbia, Canada",
+          numberOfUsers: 16,
+          OfficeImage: office6,
+        },
+        {
+          officeName: "Regional Office",
+          location: "Vancouver, British Columbia, Canada",
+          numberOfUsers: 5,
+          OfficeImage: office7,
+        },
+        {
+          officeName: "Support Desk",
+          location: "Vancouver, British Columbia, Canada",
+          numberOfUsers: 3,
+          OfficeImage: office5,
+        },
+        {
+          officeName: "Vancouver Office",
+          location: "Vancouver, British Columbia, Canada",
+          numberOfUsers: 17,
+          OfficeImage: office4,
+        },
+        {
+          officeName: "Toronto Office",
+          location: "Vancouver, British Columbia, Canada",
+          numberOfUsers: 9,
+          OfficeImage: office7,
+        },
+        {
+          officeName: "Regional Office",
+          location: "Vancouver, British Columbia, Canada",
+          numberOfUsers: 13,
+          OfficeImage: office3,
+        },
+        {
+          officeName: "Support Desk",
+          location: "Vancouver, British Columbia, Canada",
+          numberOfUsers: 7,
+          OfficeImage: office2,
+        },
+      ];
     },
   },
   mounted() {
@@ -211,6 +428,3 @@ export default {
   },
 };
 </script>
-
-
-
