@@ -78,18 +78,24 @@
   justify-content: center;
   gap: 0.5rem;
   color: white;
+  cursor: pointer;
   font-weight: 400;
+  transition: 0.4s;
 }
-
+#addOrganisation:active , #filter:active{
+  scale: 0.9;
+}
 #addOrganisation .bi-plus-search {
   font-size: 1.1rem;
 }
 
 #filter {
   width: 35%;
+  cursor: pointer;
   border-radius: 8px;
   height: 90%;
   border: 1.8px solid #4285F459;
+  transition: 0.4s;
   align-items: center;
   display: flex;
   justify-content: center;

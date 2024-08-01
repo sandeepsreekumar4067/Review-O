@@ -15,7 +15,7 @@
             <input type="text" placeholder="Search" />
           </div>
           <div class="organisation-Adding-and-filtering-container">
-            <div id="addOrganisation">
+            <div id="addOrganisation" @click="navigate('/add-organisation')">
               <i class="bi bi-plus-circle"></i>
               <p>Add Organisation</p>
             </div>
@@ -47,10 +47,6 @@
                 {{ branch.numberOfUsers }}
               </div>
             </div>
-
-            <!-- <h3>{{ branch.officeName }}</h3>
-            <p>Location: {{ branch.location }}</p>
-            <p>Number of Users: {{ branch.numberOfUsers }}</p> -->
           </div>
         </div>
         <div class="pagination">
@@ -152,6 +148,9 @@ export default {
   methods: {
     setSideBarActive() {
       this.isSideBarActive = !this.isSideBarActive;
+    },
+    navigate(route){
+      this.$router.push(route)
     },
     prevPage() {
       if (this.currentPage > 1) {
