@@ -29,19 +29,15 @@
         </select>
         <select name="role" id="role" disabled>
           <option value="all scopes">All role</option>
-          <!-- <option value="role 1">role 1</option>
-          <option value="role 2">role 2</option> -->
         </select>
         <select name="scope" id="scope" disabled>
           <option value="all scopes">All Scope</option>
-          <!-- <option value="scope 1">scope 1</option>
-          <option value="scope 2">scope 2</option> -->
         </select>
       </div>
       <textarea name="about-me" id="about-me" placeholder="About me"></textarea>
       <div class="new-profile-submit-container">
         <input type="button" value="Cancel">
-        <input type="button" value="Save" id="save">
+        <input type="button" value="Save" id="save" @click="()=>{this.$router.replace('/organisation')}">
       </div>
     </div>
   </div>

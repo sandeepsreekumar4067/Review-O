@@ -97,8 +97,11 @@
     background-color: var(--blue);
     border: none;
     color: var(--white);
+    transition: 0.4s;
 }
-
+#save:active{
+    scale: 0.9;
+}
 /* Responsive adjustments */
 @media (max-width: 1200px) {
     .new-profile-input-container input[type="text"],
