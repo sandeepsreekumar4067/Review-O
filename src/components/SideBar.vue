@@ -9,7 +9,7 @@
         <i class="bi bi-layers"></i>
         <p>Organisations</p>
       </span>
-      <span :class="{ active: activeSpan === 3 }" @click="setActive('/')">
+      <span :class="{ active: activeSpan === 3 }" @click="setActive('/all-users')">
         <i class="bi bi-people"></i>
         <p>All Users</p>
       </span>
@@ -17,7 +17,7 @@
         <i class="bi bi-grid"></i>
         <p>Apps</p>
       </span>
-      <span :class="{ active: activeSpan === 5 }" @click="setActive('/')">
+      <span :class="{ active: activeSpan === 5 }" @click="setActive('/settings')">
         <i class="bi bi-gear"></i>
         Settings
       </span>
