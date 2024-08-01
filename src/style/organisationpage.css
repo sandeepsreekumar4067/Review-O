@@ -129,7 +129,11 @@
   border-radius: 3px;
   width: 30%;
 }
-
+.branchOffice-imageContainer img{
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
 .branch-details {
   height: 75%;
   width: 63%;
@@ -152,8 +156,17 @@
   font-size: 1.1rem;
   font-weight: 300;
 }
-.branch-location .bi-geo-alt{
+.branch-location .bi-geo-alt , .branch-users .bi-person{
   color: #4285F4;
+}
+.branch-users{
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 0.4rem;
+  color: black;
+  font-size: 1.1rem;
+  font-weight: 300;
 }
 .pagination {
   display: flex;

@@ -12,7 +12,7 @@
         <div class="organisation-searchBar-and-addContainer">
           <div class="addOrganisation-searchBar">
             <i class="bi bi-search"></i>
-            <input type="text" placeholder="Search">
+            <input type="text" placeholder="Search" />
           </div>
           <div class="organisation-Adding-and-filtering-container">
             <div id="addOrganisation">
@@ -26,9 +26,13 @@
           </div>
         </div>
         <div class="branches-grid">
-          <div v-for="(branch, index) in paginatedBranches" :key="index" class="branch">
+          <div
+            v-for="(branch, index) in paginatedBranches"
+            :key="index"
+            class="branch"
+          >
             <div class="branchOffice-imageContainer">
-
+              <img :src="branch.OfficeImage" alt="">
             </div>
             <div class="branch-details">
               <div class="branch-title">
@@ -38,6 +42,10 @@
                 <i class="bi bi-geo-alt"></i>
                 {{ branch.location }}
               </div>
+              <div class="branch-users">
+                <i class="bi bi-person"></i>
+                {{ branch.numberOfUsers }}
+              </div>
             </div>
 
             <!-- <h3>{{ branch.officeName }}</h3>
@@ -46,9 +54,19 @@
           </div>
         </div>
         <div class="pagination">
-          <button @click="prevPage" :disabled="currentPage === 1">Previous</button>
-          <span v-for="page in visiblePages" :key="page" @click="goToPage(page)" :class="{ active: currentPage === page }">{{ page }}</span>
-          <button @click="nextPage" :disabled="currentPage === totalPages">Next</button>
+          <button @click="prevPage" :disabled="currentPage === 1">
+            Previous
+          </button>
+          <span
+            v-for="page in visiblePages"
+            :key="page"
+            @click="goToPage(page)"
+            :class="{ active: currentPage === page }"
+            >{{ page }}</span
+          >
+          <button @click="nextPage" :disabled="currentPage === totalPages">
+            Next
+          </button>
         </div>
       </div>
     </div>
@@ -60,12 +78,20 @@
 import NavBar from "@/components/NavBar.vue";
 import SideBar from "@/components/SideBar.vue";
 import "../style/organisationpage.css"; // Ensure this path is correct
+import office1 from "../assets/office 1.svg";
+import office2 from "../assets/office 2.svg";
+import office3 from "../assets/office 3.svg";
+import office4 from "../assets/office 4.svg";
+import office5 from "../assets/office 5.svg";
+import office6 from "../assets/office 6.svg";
+import office7 from "../assets/office 6.svg";
+import noOffice from "../assets/no office.svg";
 
 export default {
   name: "organisationPage",
   components: {
     NavBar,
-    SideBar
+    SideBar,
   },
   data() {
     return {
@@ -74,7 +100,15 @@ export default {
       currentPage: 1,
       branchesPerPage: 8,
       pagesToShow: 4, // Number of page numbers to show at a time
-      startPage: 1 // Starting page number to display
+      startPage: 1, // Starting page number to display
+      office1: office1,
+      office2: office2,
+      office3: office3,
+      office4: office4,
+      office5: office5,
+      office6: office6,
+      office7: office7,
+      noOffice: noOffice,
     };
   },
   computed: {
@@ -87,13 +121,16 @@ export default {
       return this.branches.slice(start, end);
     },
     visiblePages() {
-      const endPage = Math.min(this.startPage + this.pagesToShow - 1, this.totalPages);
+      const endPage = Math.min(
+        this.startPage + this.pagesToShow - 1,
+        this.totalPages
+      );
       const pages = [];
       for (let i = this.startPage; i <= endPage; i++) {
         pages.push(i);
       }
       return pages;
-    }
+    },
   },
   methods: {
     setSideBarActive() {
@@ -126,71 +163,52 @@ export default {
     fetchBranches() {
       // Simulate an API call
       this.branches = [
-        { officeName: "Office 1", location: "Location 1", numberOfUsers: 100 },
-        { officeName: "Office 2", location: "Location 2", numberOfUsers: 120 },
-        { officeName: "Office 3", location: "Location 3", numberOfUsers: 90 },
-        { officeName: "Office 4", location: "Location 4", numberOfUsers: 80 },
-        { officeName: "Office 5", location: "Location 5", numberOfUsers: 110 },
-        { officeName: "Office 6", location: "Location 6", numberOfUsers: 95 },
-        { officeName: "Office 7", location: "Location 7", numberOfUsers: 130 },
-        { officeName: "Office 8", location: "Location 8", numberOfUsers: 85 },
-        { officeName: "Office 9", location: "Location 9", numberOfUsers: 105 },
-        { officeName: "Office 10", location: "Location 10", numberOfUsers: 115 },
-        { officeName: "Office 6", location: "Location 6", numberOfUsers: 95 },
-        { officeName: "Office 7", location: "Location 7", numberOfUsers: 130 },
-        { officeName: "Office 8", location: "Location 8", numberOfUsers: 85 },
-        { officeName: "Office 9", location: "Location 9", numberOfUsers: 105 },
-        { officeName: "Office 10", location: "Location 10", numberOfUsers: 115 },
-        { officeName: "Office 1", location: "Location 1", numberOfUsers: 100 },
-        { officeName: "Office 2", location: "Location 2", numberOfUsers: 120 },
-        { officeName: "Office 3", location: "Location 3", numberOfUsers: 90 },
-        { officeName: "Office 4", location: "Location 4", numberOfUsers: 80 },
-        { officeName: "Office 5", location: "Location 5", numberOfUsers: 110 },
-        { officeName: "Office 4", location: "Location 4", numberOfUsers: 80 },
-        { officeName: "Office 5", location: "Location 5", numberOfUsers: 110 },
-        { officeName: "Office 6", location: "Location 6", numberOfUsers: 95 },
-        { officeName: "Office 7", location: "Location 7", numberOfUsers: 130 },
-        { officeName: "Office 8", location: "Location 8", numberOfUsers: 85 },
-        { officeName: "Office 1", location: "Location 1", numberOfUsers: 100 },
-        { officeName: "Office 2", location: "Location 2", numberOfUsers: 120 },
-        { officeName: "Office 3", location: "Location 3", numberOfUsers: 90 },
-        { officeName: "Office 4", location: "Location 4", numberOfUsers: 80 },
-        { officeName: "Office 5", location: "Location 5", numberOfUsers: 110 },
-        { officeName: "Office 1", location: "Location 1", numberOfUsers: 100 },
-        { officeName: "Office 2", location: "Location 2", numberOfUsers: 120 },
-        { officeName: "Office 3", location: "Location 3", numberOfUsers: 90 },
-        { officeName: "Office 4", location: "Location 4", numberOfUsers: 80 },
-        { officeName: "Office 5", location: "Location 5", numberOfUsers: 110 },
-        { officeName: "Office 5", location: "Location 5", numberOfUsers: 110 },
-        { officeName: "Office 6", location: "Location 6", numberOfUsers: 95 },
-        { officeName: "Office 7", location: "Location 7", numberOfUsers: 130 },
-        { officeName: "Office 8", location: "Location 8", numberOfUsers: 85 },
-        { officeName: "Office 9", location: "Location 9", numberOfUsers: 105 },
-        { officeName: "Office 10", location: "Location 10", numberOfUsers: 115 },
-        { officeName: "Office 6", location: "Location 6", numberOfUsers: 95 },
-        { officeName: "Office 7", location: "Location 7", numberOfUsers: 130 },
-        { officeName: "Office 8", location: "Location 8", numberOfUsers: 85 },
-        { officeName: "Office 9", location: "Location 9", numberOfUsers: 105 },
-        { officeName: "Office 10", location: "Location 10", numberOfUsers: 115 },
-        { officeName: "Office 1", location: "Location 1", numberOfUsers: 100 },
-        { officeName: "Office 2", location: "Location 2", numberOfUsers: 120 },
-        { officeName: "Office 3", location: "Location 3", numberOfUsers: 90 },
-        { officeName: "Office 1", location: "Location 1", numberOfUsers: 100 },
-        { officeName: "Office 2", location: "Location 2", numberOfUsers: 120 },
-        { officeName: "Office 3", location: "Location 3", numberOfUsers: 90 },
-        { officeName: "Office 4", location: "Location 4", numberOfUsers: 80 },
-        { officeName: "Office 5", location: "Location 5", numberOfUsers: 110 },
-        { officeName: "Office 1", location: "Location 1", numberOfUsers: 100 },
-        { officeName: "Office 2", location: "Location 2", numberOfUsers: 120 },
-        { officeName: "Office 3", location: "Location 3", numberOfUsers: 90 },
-        { officeName: "Office 4", location: "Location 4", numberOfUsers: 80 },
-        // Add more simulated branches as needed
-      ];
-    }
+  { officeName: "Vancouver Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 12, OfficeImage: office5 },
+  { officeName: "Toronto Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 9, OfficeImage: office2 },
+  { officeName: "Regional Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 17, OfficeImage: office1 },
+  { officeName: "Support Desk", location: "Vancouver, British Columbia, Canada", numberOfUsers: 14, OfficeImage: office3 },
+  { officeName: "Vancouver Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 8, OfficeImage: office7 },
+  { officeName: "Toronto Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 19, OfficeImage: office6 },
+  { officeName: "Regional Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 15, OfficeImage: office4 },
+  { officeName: "Support Desk", location: "Vancouver, British Columbia, Canada", numberOfUsers: 10, OfficeImage: office7 },
+  { officeName: "Vancouver Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 20, OfficeImage: office2 },
+  { officeName: "Toronto Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 11, OfficeImage: noOffice },
+  { officeName: "Regional Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 7, OfficeImage: office1 },
+  { officeName: "Support Desk", location: "Vancouver, British Columbia, Canada", numberOfUsers: 16, OfficeImage: office5 },
+  { officeName: "Vancouver Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 13, OfficeImage: office4 },
+  { officeName: "Toronto Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 6, OfficeImage: office3 },
+  { officeName: "Regional Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 18, OfficeImage: office7 },
+  { officeName: "Support Desk", location: "Vancouver, British Columbia, Canada", numberOfUsers: 5, OfficeImage: office6 },
+  { officeName: "Vancouver Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 14, OfficeImage: office7 },
+  { officeName: "Toronto Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 11, OfficeImage: office5 },
+  { officeName: "Regional Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 4, OfficeImage: office2 },
+  { officeName: "Support Desk", location: "Vancouver, British Columbia, Canada", numberOfUsers: 10, OfficeImage: office3 },
+  { officeName: "Vancouver Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 9, OfficeImage: noOffice },
+  { officeName: "Toronto Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 17, OfficeImage: office4 },
+  { officeName: "Regional Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 8, OfficeImage: office7 },
+  { officeName: "Support Desk", location: "Vancouver, British Columbia, Canada", numberOfUsers: 19, OfficeImage: office1 },
+  { officeName: "Vancouver Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 13, OfficeImage: office6 },
+  { officeName: "Toronto Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 15, OfficeImage: office7 },
+  { officeName: "Regional Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 2, OfficeImage: office5 },
+  { officeName: "Support Desk", location: "Vancouver, British Columbia, Canada", numberOfUsers: 20, OfficeImage: office4 },
+  { officeName: "Vancouver Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 12, OfficeImage: office7 },
+  { officeName: "Toronto Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 6, OfficeImage: office3 },
+  { officeName: "Regional Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 18, OfficeImage: noOffice },
+  { officeName: "Support Desk", location: "Vancouver, British Columbia, Canada", numberOfUsers: 11, OfficeImage: office2 },
+  { officeName: "Vancouver Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 14, OfficeImage: office1 },
+  { officeName: "Toronto Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 16, OfficeImage: office6 },
+  { officeName: "Regional Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 5, OfficeImage: office7 },
+  { officeName: "Support Desk", location: "Vancouver, British Columbia, Canada", numberOfUsers: 3, OfficeImage: office5 },
+  { officeName: "Vancouver Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 17, OfficeImage: office4 },
+  { officeName: "Toronto Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 9, OfficeImage: office7 },
+  { officeName: "Regional Office", location: "Vancouver, British Columbia, Canada", numberOfUsers: 13, OfficeImage: office3 },
+  { officeName: "Support Desk", location: "Vancouver, British Columbia, Canada", numberOfUsers: 7, OfficeImage: office2 },
+];
+    },
   },
   mounted() {
     this.fetchBranches();
-  }
+  },
 };
 </script>
 
