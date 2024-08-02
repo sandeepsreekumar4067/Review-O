@@ -72,6 +72,7 @@
             </span>
           </div>
         </div>
+        <FooterComponent/>
       </div>
     </div>
   </div>
@@ -90,12 +91,14 @@ import office5 from "../assets/office 5.svg";
 import office6 from "../assets/office 6.svg";
 import office7 from "../assets/office 6.svg";
 import noOffice from "../assets/no office.svg";
+import FooterComponent from "@/components/FooterComponent.vue";
 
 export default {
   name: "organisationPage",
   components: {
     NavBar,
     SideBar,
+    FooterComponent
   },
   data() {
     return {

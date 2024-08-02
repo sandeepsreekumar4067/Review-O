@@ -1,0 +1,48 @@
+.footer-container {
+    width: 100%;
+    height: 6rem;
+    border-top: 2px solid var(--iconBorderColor);
+    display: flex;
+    align-items: center;
+}
+
+.footer-rights-component {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #A2A1A8;
+    font-weight: 300;
+    font-size: 0.9rem;
+}
+
+.footer-rights-component p {
+    cursor: pointer;
+    transition: 0.4s;
+
+}
+.footer-rights-component p:hover {
+    color: #16151C;
+}
+
+.footer-termsAndConditions-component {
+    gap: 0.8rem;
+    height: 100%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    color: #A2A1A8;
+    font-weight: 300;
+    font-size: 0.9rem;
+}
+
+.footer-termsAndConditions-component span {
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.footer-termsAndConditions-component span:hover {
+    color: #16151C;
+}
