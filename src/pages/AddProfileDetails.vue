@@ -41,9 +41,11 @@
       </div>
     </div>
   </div>
+  <FooterComponent/>
 </template>
 
 <script>
+import FooterComponent from "@/components/FooterComponent.vue";
 import "../style/newprofile.css";
 import NavBar from "@/components/NavBar.vue";
 import SideBar from "@/components/SideBar.vue";
@@ -53,6 +55,7 @@ export default {
   components: {
     NavBar,
     SideBar,
+    FooterComponent
   },
   data() {
     return {

@@ -72,10 +72,10 @@
             </span>
           </div>
         </div>
-        <FooterComponent/>
       </div>
     </div>
   </div>
+  <FooterComponent/>
 </template>
 
 

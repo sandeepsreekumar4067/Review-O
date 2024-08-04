@@ -52,6 +52,7 @@
       </div>
     </div>
   </div>
+  <FooterComponent/>
 </template>
 
 <script>
@@ -66,11 +67,13 @@ import tripAdvisor from "../assets/tripAdvisor.svg";
 import skipTheDishes from "../assets/skipTheDishes.svg";
 import facebook from "../assets/facebook.svg";
 import yelp from "../assets/yelp.svg";
+import FooterComponent from "@/components/FooterComponent.vue";
 export default {
   name: "AppsPage",
   components: {
     NavBar,
     SideBar,
+    FooterComponent
   },
   data() {
     return {

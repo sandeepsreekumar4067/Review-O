@@ -37,17 +37,20 @@
       <SideBar :isActive="isSidebarActive" :activeSpan="2"/>
     </div>
   </div>
+  <FooterComponent/>
 </template>
 
 <script>
 import NavBar from "@/components/NavBar.vue";
 import "../style/addorganisation.css";
 import SideBar from "@/components/SideBar.vue";
+import FooterComponent from "@/components/FooterComponent.vue";
 export default {
   name: "AddOrganisations",
   components: {
     NavBar,
     SideBar,
+    FooterComponent
   },
   data() {
     return {
