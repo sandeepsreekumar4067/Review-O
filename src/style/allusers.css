@@ -7,13 +7,15 @@
     margin-top: 7rem;
 }
 .allUsers-components{
-    background-color: var(--white);
-    height: 100%;
     width: 100%;
-    display: flex;
-    align-items: center;
+    height: 100%;
     transition: 0.4s;
-    justify-content: center;
+    box-sizing: border-box;
+    padding: 1rem;
+    background-color: var(--white);
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;  
 
 }
 .allUsers-components.active{
