@@ -3,17 +3,17 @@
     <NavBar :title="title" :subtitle="subtitle" :user="user" @toggle-sidebar="setSidebarActive"/>
     <div :class="['allUsers-components',{active:isSidebarActive}]">
       <SideBar :isActive="isSidebarActive" :activeSpan="3"/>
-      <div class="organisation-searchBar-and-addContainer">
-          <div class="addOrganisation-searchBar">
+      <div class="users-searchBar-and-addContainer">
+          <div class="users-searchBar">
             <i class="bi bi-search"></i>
             <input type="text" placeholder="Search" />
           </div>
-          <div class="organisation-Adding-and-filtering-container">
-            <div id="addOrganisation" @click="navigate('/add-organisation')">
+          <div class="users-Adding-and-filtering-container">
+            <div id="users" @click="navigate('/add-organisation')">
               <i class="bi bi-plus-circle"></i>
               <p>Add Organisation</p>
             </div>
-            <div id="filter">
+            <div id="Userfilter">
               <i class="bi bi-sliders"></i>
               <p>Filter</p>
             </div>

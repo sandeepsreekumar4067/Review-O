@@ -22,3 +22,85 @@
     margin-left: 19%;
     border-radius: 10px 0 0 0;
 }
+.users-searchBar-and-addContainer {
+    height: 4rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .users-searchBar {
+    width: 30%;
+    height: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    box-sizing: border-box;
+    padding: 0.5rem;
+    gap: 0.8rem;
+    border-radius: 10px;
+    border: solid 1.8px #4285F459;
+  }
+  
+  .users-searchBar .bi-search {
+    font-size: 1.5rem;
+  }
+  
+  .users-searchBar input[type="text"] {
+    height: 90%;
+    width: 100%;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 300;
+    outline: none;
+  }
+  
+  .users-Adding-and-filtering-container {
+    width: 30%;
+    height: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+  }
+  
+  #users {
+    border-radius: 8px;
+    background-color: #4285F4;
+    width: 65%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: white;
+    cursor: pointer;
+    font-weight: 400;
+    transition: 0.4s;
+  }
+  #users:active , #filter:active{
+    scale: 0.9;
+  }
+  #users .bi-plus-search {
+    font-size: 1.1rem;
+  }
+  
+  #Userfilter {
+    width: 35%;
+    cursor: pointer;
+    border-radius: 8px;
+    height: 90%;
+    border: 1.8px solid #4285F459;
+    transition: 0.4s;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    font-weight: 400;
+  }
+  
+  #Userfilter .bi-sliders {
+    font-size: 1.1rem;
+  }
+  
