@@ -1,4 +1,4 @@
-.allUsers-container{
+.allUsers-container {
     width: 100%;
     height: 100vh;
     display: flex;
@@ -6,7 +6,8 @@
     justify-content: center;
     margin-top: 7rem;
 }
-.allUsers-components{
+
+.allUsers-components {
     width: 100%;
     height: 100%;
     transition: 0.4s;
@@ -15,22 +16,24 @@
     background-color: var(--white);
     gap: 1rem;
     display: flex;
-    flex-direction: column;  
+    flex-direction: column;
 
 }
-.allUsers-components.active{
+
+.allUsers-components.active {
     margin-left: 19%;
     border-radius: 10px 0 0 0;
 }
+
 .users-searchBar-and-addContainer {
     height: 4rem;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-  }
-  
-  .users-searchBar {
+}
+
+.users-searchBar {
     width: 30%;
     height: 75%;
     display: flex;
@@ -41,34 +44,36 @@
     gap: 0.8rem;
     border-radius: 10px;
     border: solid 1.8px #4285F459;
-  }
-  
-  .users-searchBar .bi-search {
+}
+
+.users-searchBar .bi-search {
     font-size: 1.5rem;
-  }
-  
-  .users-searchBar input[type="text"] {
+}
+
+.users-searchBar input[type="text"] {
     height: 90%;
     width: 100%;
     border: none;
     font-size: 1.1rem;
     font-weight: 300;
     outline: none;
-  }
-  
-  .users-Adding-and-filtering-container {
+}
+
+.users-Adding-and-filtering-container {
     width: 30%;
     height: 75%;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.8rem;
-  }
-  
-  #users {
+}
+
+#users {
     border-radius: 8px;
     background-color: #4285F4;
-    width: 65%;
+    width: auto;
+    box-sizing: border-box;
+    padding: 1rem;
     height: 90%;
     display: flex;
     align-items: center;
@@ -78,15 +83,18 @@
     cursor: pointer;
     font-weight: 400;
     transition: 0.4s;
-  }
-  #users:active , #filter:active{
+}
+
+#users:active,
+#filter:active {
     scale: 0.9;
-  }
-  #users .bi-plus-search {
+}
+
+#users .bi-plus-search {
     font-size: 1.1rem;
-  }
-  
-  #Userfilter {
+}
+
+#Userfilter {
     width: 35%;
     cursor: pointer;
     border-radius: 8px;
@@ -98,9 +106,26 @@
     justify-content: center;
     gap: 0.5rem;
     font-weight: 400;
-  }
-  
-  #Userfilter .bi-sliders {
+}
+
+#Userfilter .bi-sliders {
     font-size: 1.1rem;
-  }
-  
+}
+
+.user-details-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.user-title{
+    margin-top: 1.5rem;
+    width: 100%;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    color:#A2A1A8;
+    font-weight: 300;
+    gap: 14.5rem;
+}
