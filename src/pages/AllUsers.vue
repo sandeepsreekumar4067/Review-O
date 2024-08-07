@@ -15,7 +15,7 @@
           <input type="text" placeholder="Search" />
         </div>
         <div class="users-Adding-and-filtering-container">
-          <div id="users" @click="navigate('/add-organisation')">
+          <div id="users">
             <i class="bi bi-plus-circle"></i>
             <p>Add User</p>
           </div>
