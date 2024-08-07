@@ -45,7 +45,9 @@
             {{ user.phoneNumber }}
           </span>
           <div class="action-container">
-            
+            <i class="bi bi-eye"></i>
+            <i class="bi bi-pencil-square"></i>
+            <i class="bi bi-trash"></i>
           </div>
         </div>
       </div>
