@@ -1,6 +1,6 @@
 .allUsers-container {
     width: 100%;
-    height: 110vh;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -17,7 +17,6 @@
     gap: 1rem;
     display: flex;
     flex-direction: column;
-
 }
 
 .allUsers-components.active {
@@ -124,11 +123,18 @@
     width: 100%;
     display: flex;
     align-items: start;
-    justify-content: start;
+    justify-content: space-between;
     color:#A2A1A8;
     font-weight: 300;
     gap: 14.5rem;
     margin-bottom: 1.5rem;
+}
+.action{
+    margin-right: 6rem;
+    transition: 0.4s;
+}
+.action.active{
+    margin-right: 8.5rem;
 }
 .users-container{
     width: 100%;
@@ -138,7 +144,7 @@
     border-top: 1.8px solid #A2A1A81A;
     color:#16151C;
     font-weight: 300;
-    height: 100%;
+    height: 4rem;
 }
 .users-container span{
     display: flex;
@@ -148,7 +154,7 @@
     height: 100%;
 }
 .action-container{
-    width: 18%;
+    width: 13%;
     height: 100%;
     display: flex;
     align-items: center;

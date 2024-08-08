@@ -31,7 +31,7 @@
           <span>User name</span>
           <span>Email address</span>
           <span>Phone number</span>
-          <span>Action</span>
+          <span :class="['action',{active:!isSidebarActive}]">Action</span>
         </div>
         <div class="users-container" v-for="user in paginatedUsers" :key="user.username">
           <span>
@@ -73,6 +73,7 @@
       </div>
     </div>
   </div>
+  <FooterComponent/>
 </template>
 
 
@@ -81,9 +82,10 @@ import NavBar from "@/components/NavBar.vue";
 import "../style/allusers.css";
 import SideBar from "@/components/SideBar.vue";
 import userImg from "../assets/userName.svg";
+import FooterComponent from "@/components/FooterComponent.vue";
 export default {
   name: "AllUsers",
-  components: { NavBar, SideBar },
+  components: { NavBar, SideBar,FooterComponent },
   data() {
     return {
       title: "All Users",
@@ -154,7 +156,7 @@ export default {
         },
       ],
       currentPage: 1,
-      usersPerPage: 5,
+      usersPerPage: 7,
       pagesToShow: 3, // Number of page numbers to show at a time
       startPage: 1, // Starting page number to display
     };
