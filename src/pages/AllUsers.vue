@@ -59,7 +59,9 @@
           </p>
         </div>
         <div>
-          <button @click="prevPage" :disabled="currentPage === 1">Previous</button>
+          <span @click="prevPage" :disabled="currentPage === 1">
+              <i class="bi bi-chevron-left"></i>
+            </span>
           <span
             v-for="page in visiblePages"
             :key="page"
@@ -68,7 +70,9 @@
           >
             {{ page }}
           </span>
-          <button @click="nextPage" :disabled="currentPage === totalPages">Next</button>
+          <span @click="nextPage" :disabled="currentPage === totalPages">
+              <i class="bi bi-chevron-right"></i>
+            </span>
         </div>
       </div>
     </div>
@@ -99,6 +103,24 @@ export default {
           email: "johndoe@example.com",
           phoneNumber: "+1-555-123-4567",
           image: "user1.png",
+        },
+        {
+          username: "CharlieDavis",
+          email: "charliedavis@example.com",
+          phoneNumber: "+1-555-567-8901",
+          image: "user5.png",
+        },
+        {
+          username: "DavidWilson",
+          email: "davidwilson@example.com",
+          phoneNumber: "+1-555-678-9012",
+          image: "user6.png",
+        },
+        {
+          username: "EmmaMoore",
+          email: "emmamoore@example.com",
+          phoneNumber: "+1-555-789-0123",
+          image: "user7.png",
         },
         {
           username: "JaneSmith",
@@ -153,6 +175,72 @@ export default {
           email: "henrymartin@example.com",
           phoneNumber: "+1-555-012-3456",
           image: "user10.png",
+        },
+        {
+          username: "BobJohnson",
+          email: "bobjohnson@example.com",
+          phoneNumber: "+1-555-345-6789",
+          image: "user3.png",
+        },
+        {
+          username: "AliceBrown",
+          email: "alicebrown@example.com",
+          phoneNumber: "+1-555-456-7890",
+          image: "user4.png",
+        },
+        {
+          username: "CharlieDavis",
+          email: "charliedavis@example.com",
+          phoneNumber: "+1-555-567-8901",
+          image: "user5.png",
+        },
+        {
+          username: "DavidWilson",
+          email: "davidwilson@example.com",
+          phoneNumber: "+1-555-678-9012",
+          image: "user6.png",
+        },
+        {
+          username: "FrankWhite",
+          email: "frankwhite@example.com",
+          phoneNumber: "+1-555-890-1234",
+          image: "user8.png",
+        },
+        {
+          username: "GraceHarris",
+          email: "graceharris@example.com",
+          phoneNumber: "+1-555-901-2345",
+          image: "user9.png",
+        },
+        {
+          username: "HenryMartin",
+          email: "henrymartin@example.com",
+          phoneNumber: "+1-555-012-3456",
+          image: "user10.png",
+        },
+        {
+          username: "BobJohnson",
+          email: "bobjohnson@example.com",
+          phoneNumber: "+1-555-345-6789",
+          image: "user3.png",
+        },
+        {
+          username: "AliceBrown",
+          email: "alicebrown@example.com",
+          phoneNumber: "+1-555-456-7890",
+          image: "user4.png",
+        },
+        {
+          username: "EmmaMoore",
+          email: "emmamoore@example.com",
+          phoneNumber: "+1-555-789-0123",
+          image: "user7.png",
+        },
+        {
+          username: "FrankWhite",
+          email: "frankwhite@example.com",
+          phoneNumber: "+1-555-890-1234",
+          image: "user8.png",
         },
       ],
       currentPage: 1,
