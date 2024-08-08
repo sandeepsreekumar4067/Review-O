@@ -8,7 +8,7 @@
     />
     <div :class="['allUsers-components', { active: isSidebarActive }]">
       <SideBar :isActive="isSidebarActive" :activeSpan="3" />
-      <!--User search bar-->
+      <!-- User search bar -->
       <div class="users-searchBar-and-addContainer">
         <div class="users-searchBar">
           <i class="bi bi-search"></i>
@@ -25,7 +25,7 @@
           </div>
         </div>
       </div>
-      <!--User Details container-->
+      <!-- User Details container -->
       <div class="user-details-container">
         <div class="user-title">
           <span>User name</span>
@@ -33,9 +33,9 @@
           <span>Phone number</span>
           <span>Action</span>
         </div>
-        <div class="users-container" v-for="user in users" :key="user">
+        <div class="users-container" v-for="user in paginatedUsers" :key="user.username">
           <span>
-            <img :src="userImg" alt="">
+            <img :src="userImg" alt="" />
             {{ user.username }}
           </span>
           <span>
@@ -51,15 +51,36 @@
           </div>
         </div>
       </div>
+      <!-- Pagination -->
+      <div class="pagination">
+        <div class="record-number">
+          <p>
+            Showing {{ displayStart }} - {{ displayEnd }} of {{ users.length }} records
+          </p>
+        </div>
+        <div>
+          <button @click="prevPage" :disabled="currentPage === 1">Previous</button>
+          <span
+            v-for="page in visiblePages"
+            :key="page"
+            @click="goToPage(page)"
+            :class="{ active: currentPage === page }"
+          >
+            {{ page }}
+          </span>
+          <button @click="nextPage" :disabled="currentPage === totalPages">Next</button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
+
 
 <script>
 import NavBar from "@/components/NavBar.vue";
 import "../style/allusers.css";
 import SideBar from "@/components/SideBar.vue";
-import userImg from "../assets/userName.svg"
+import userImg from "../assets/userName.svg";
 export default {
   name: "AllUsers",
   components: { NavBar, SideBar },
@@ -69,7 +90,7 @@ export default {
       subtitle: "All Users Information",
       user: "Sandeep Sreekumar",
       isSidebarActive: true,
-      userImg:userImg,
+      userImg: userImg,
       users: [
         {
           username: "JohnDoe",
@@ -132,15 +153,67 @@ export default {
           image: "user10.png",
         },
       ],
+      currentPage: 1,
+      usersPerPage: 5,
+      pagesToShow: 3, // Number of page numbers to show at a time
+      startPage: 1, // Starting page number to display
     };
+  },
+  computed: {
+    totalPages() {
+      return Math.ceil(this.users.length / this.usersPerPage);
+    },
+    paginatedUsers() {
+      const start = (this.currentPage - 1) * this.usersPerPage;
+      const end = start + this.usersPerPage;
+      return this.users.slice(start, end);
+    },
+    visiblePages() {
+      const endPage = Math.min(
+        this.startPage + this.pagesToShow - 1,
+        this.totalPages
+      );
+      const pages = [];
+      for (let i = this.startPage; i <= endPage; i++) {
+        pages.push(i);
+      }
+      return pages;
+    },
+    displayStart() {
+      return (this.currentPage - 1) * this.usersPerPage + 1;
+    },
+    displayEnd() {
+      return Math.min(this.currentPage * this.usersPerPage, this.users.length);
+    },
   },
   methods: {
     setSidebarActive() {
       this.isSidebarActive = !this.isSidebarActive;
     },
+    prevPage() {
+      if (this.currentPage > 1) {
+        this.currentPage--;
+        if (this.currentPage < this.startPage) {
+          this.startPage = Math.max(this.currentPage - this.pagesToShow + 1, 1);
+        }
+      }
+    },
+    nextPage() {
+      if (this.currentPage < this.totalPages) {
+        this.currentPage++;
+        if (this.currentPage > this.startPage + this.pagesToShow - 1) {
+          this.startPage++;
+        }
+      }
+    },
+    goToPage(page) {
+      this.currentPage = page;
+      if (page >= this.startPage + this.pagesToShow) {
+        this.startPage = page - this.pagesToShow + 1;
+      } else if (page < this.startPage) {
+        this.startPage = page;
+      }
+    },
   },
 };
 </script>
-
-<style>
-</style>

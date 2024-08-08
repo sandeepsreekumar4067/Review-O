@@ -4,9 +4,10 @@
     :subtitle="subtitle"
     :user="user"
     @toggle-sidebar="setSideBarActive"
+    class="nav"
   />
   <div class="new-profile-container">
-    <SideBar :isActive="isSideBarActive" />
+    <SideBar :isActive="isSideBarActive" class="side"/>
     <div :class="['new-profile-components', { active: isSideBarActive }]">
       <div class="new-profile-title">Profile information</div>
       <div class="add-new-profile-pic-container">
@@ -49,7 +50,6 @@ import FooterComponent from "@/components/FooterComponent.vue";
 import "../style/newprofile.css";
 import NavBar from "@/components/NavBar.vue";
 import SideBar from "@/components/SideBar.vue";
-
 export default {
   name: "AddProfilePage",
   components: {
@@ -148,6 +148,7 @@ export default {
       this.isSideBarActive = !this.isSideBarActive;
     },
   },
+  
 };
 </script>
 

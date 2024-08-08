@@ -46,7 +46,8 @@ export default {
     setActive(route) {
       this.$router.replace(route)
     }
-  }
+  },
+
 };
 </script>
 
