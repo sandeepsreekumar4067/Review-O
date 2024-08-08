@@ -41,6 +41,7 @@ import LoginImage from "../assets/Illustration.png";
 import Logo from "../assets/Logo2.png";
 import google from "../assets/google.svg";
 import Microsoft from "../assets/Microsoft.svg";
+import {gsap} from 'gsap'
 export default {
   name: "LoginPage",
   data() {
@@ -57,6 +58,9 @@ export default {
     togglePassword() {
       this.passVisibility = !this.passVisibility;
     },
+    loginAnimation(){
+      
+    }
   },
 };
 </script>
