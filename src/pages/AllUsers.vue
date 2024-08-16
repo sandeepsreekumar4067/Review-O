@@ -34,7 +34,20 @@
             <span>Action</span>
           </div>
           <div class="user-info-container">
-            
+            <div class="user-container">
+              <span>
+                usernam
+              </span>
+              <span>
+                email
+              </span>
+              <span>
+                phone no
+              </span>
+              <span>
+                action
+              </span>
+            </div>
           </div>
        </div>
       <!-- Pagination -->

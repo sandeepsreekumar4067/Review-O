@@ -139,7 +139,27 @@
 .user-info-container{
     height: 100%;
     width: 100%;
-    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 0.4rem;
+}
+
+.user-container{
+    height: 3.6rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.user-container span{
+    width: 25%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .allUsers-pagination {
     display: flex;
