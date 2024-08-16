@@ -41,8 +41,8 @@
           >
             <span id="uname">
               <img :src="userImg" alt="" />
-              <!-- {{ truncateUsername(user.username) }} -->
-                {{ user.username }}
+              {{ truncateUsername(user.username) }}
+                <!-- {{ user.username }} -->
             </span>
             <span>{{ user.email }}</span>
             <span>{{ user.phoneNumber }}</span>
@@ -56,7 +56,9 @@
           <p>Showing {{ displayStart }} - {{ displayEnd }} out of {{ users.length }} records</p>
         </div>
         <div>
-          <button @click="prevPage" :disabled="currentPage === 1">Previous</button>
+          <span @click="prevPage" :disabled="currentPage === 1">
+            <i class="bi bi-chevron-left"></i>
+          </span>
           <span
             v-for="page in visiblePages"
             :key="page"
@@ -64,7 +66,9 @@
             :class="{ active: currentPage === page }"
             >{{ page }}</span
           >
-          <button @click="nextPage" :disabled="currentPage === totalPages">Next</button>
+          <span @click="nextPage" :disabled="currentPage === totalPages">
+            <i class="bi bi-chevron-right"></i>
+          </span>
         </div>
       </div>
     </div>
@@ -252,13 +256,7 @@ export default {
       const end = start + this.usersPerPage;
       return this.users.slice(start, end);
     },
-    truncateUsername(username) {
-    if (username.length > 11) {
-      return username.slice(0, 11) + '...';
-    } else {
-      return username;
-    }
-  },
+
     visiblePages() {
       const endPage = Math.min(
         this.startPage + this.pagesToShow - 1,
@@ -281,6 +279,13 @@ export default {
     setSidebarActive() {
       this.isSidebarActive = !this.isSidebarActive;
     },
+    truncateUsername(username) {
+    if (username.length > 15) {
+      return username.slice(0, 15) + '...';
+    } else {
+      return username;
+    }
+  },
     prevPage() {
       if (this.currentPage > 1) {
         this.currentPage--;
