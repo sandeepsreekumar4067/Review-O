@@ -141,26 +141,40 @@
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: start;
+    justify-content: space-evenly;
     flex-direction: column;
     box-sizing: border-box;
     padding: 0.4rem;
 }
 
 .user-container{
-    height: 3.6rem;
+    height: 4rem;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .user-container span{
-    width: 25%;
+    flex:1 1 25%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 3.5rem;
 }
+
+#uname{
+    align-items: center;
+    justify-content: start;
+}
+
+.user-container span img{
+    height: 2.8rem;
+    width: 2.8rem;
+    border-radius: 50%;
+    object-fit: contain;
+}
+
 .allUsers-pagination {
     display: flex;
     justify-content: space-between;
@@ -198,4 +212,3 @@
     color: #4285F4;
     border-radius: 8px;
   }
-  

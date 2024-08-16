@@ -26,57 +26,50 @@
         </div>
       </div>
       <!-- User Details container -->
-       <div class="user-details-container">
-          <div class="user-info-title">
-            <span>Username</span>
-            <span>Email Address</span>
-            <span>Phone Number</span>
-            <span>Action</span>
+      <div class="user-details-container">
+        <div class="user-info-title">
+          <span>Username</span>
+          <span>Email Address</span>
+          <span>Phone Number</span>
+          <span>Action</span>
+        </div>
+        <div class="user-info-container">
+          <div
+            class="user-container"
+            v-for="(user, index) in paginatedUsers"
+            :key="index"
+          >
+            <span id="uname">
+              <img :src="userImg" alt="" />
+              <!-- {{ truncateUsername(user.username) }} -->
+                {{ user.username }}
+            </span>
+            <span>{{ user.email }}</span>
+            <span>{{ user.phoneNumber }}</span>
+            <span>actions</span>
           </div>
-          <div class="user-info-container">
-            <div class="user-container">
-              <span>
-                usernam
-              </span>
-              <span>
-                email
-              </span>
-              <span>
-                phone no
-              </span>
-              <span>
-                action
-              </span>
-            </div>
-          </div>
-       </div>
+        </div>
+      </div>
       <!-- Pagination -->
       <div class="allUsers-pagination">
         <div class="allUsers-record-number">
-          <p>
-            Showing {{ displayStart }} - {{ displayEnd }} of {{ users.length }} records
-          </p>
+          <p>Showing {{ displayStart }} - {{ displayEnd }} out of {{ users.length }} records</p>
         </div>
         <div>
-          <span @click="prevPage" :disabled="currentPage === 1">
-              <i class="bi bi-chevron-left"></i>
-            </span>
+          <button @click="prevPage" :disabled="currentPage === 1">Previous</button>
           <span
             v-for="page in visiblePages"
             :key="page"
             @click="goToPage(page)"
             :class="{ active: currentPage === page }"
+            >{{ page }}</span
           >
-            {{ page }}
-          </span>
-          <span @click="nextPage" :disabled="currentPage === totalPages">
-              <i class="bi bi-chevron-right"></i>
-            </span>
+          <button @click="nextPage" :disabled="currentPage === totalPages">Next</button>
         </div>
       </div>
     </div>
   </div>
-  <FooterComponent/>
+  <FooterComponent />
 </template>
 
 
@@ -86,9 +79,10 @@ import "../style/allusers.css";
 import SideBar from "@/components/SideBar.vue";
 import userImg from "../assets/userName.svg";
 import FooterComponent from "@/components/FooterComponent.vue";
+
 export default {
   name: "AllUsers",
-  components: { NavBar, SideBar,FooterComponent },
+  components: { NavBar, SideBar, FooterComponent },
   data() {
     return {
       title: "All Users",
@@ -96,6 +90,10 @@ export default {
       user: "Sandeep Sreekumar",
       isSidebarActive: true,
       userImg: userImg,
+      currentPage: 1,
+      usersPerPage: 8,
+      pagesToShow: 3, // Number of page numbers to show at a time
+      startPage: 1, // Starting page number to display
       users: [
         {
           username: "JohnDoe",
@@ -104,7 +102,7 @@ export default {
           image: "user1.png",
         },
         {
-          username: "CharlieDavis",
+          username: "CharlsoiejosijsldklsmlsemfieDavis",
           email: "charliedavis@example.com",
           phoneNumber: "+1-555-567-8901",
           image: "user5.png",
@@ -242,10 +240,7 @@ export default {
           image: "user8.png",
         },
       ],
-      currentPage: 1,
-      usersPerPage: 7,
-      pagesToShow: 3, // Number of page numbers to show at a time
-      startPage: 1, // Starting page number to display
+
     };
   },
   computed: {
@@ -257,6 +252,13 @@ export default {
       const end = start + this.usersPerPage;
       return this.users.slice(start, end);
     },
+    truncateUsername(username) {
+    if (username.length > 11) {
+      return username.slice(0, 11) + '...';
+    } else {
+      return username;
+    }
+  },
     visiblePages() {
       const endPage = Math.min(
         this.startPage + this.pagesToShow - 1,
