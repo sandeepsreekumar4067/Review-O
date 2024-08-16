@@ -26,34 +26,20 @@
         </div>
       </div>
       <!-- User Details container -->
-      <div class="user-details-container">
-        <div class="user-title">
-          <span>User name</span>
-          <span>Email address</span>
-          <span>Phone number</span>
-          <span :class="['action',{active:!isSidebarActive}]">Action</span>
-        </div>
-        <div class="users-container" v-for="user in paginatedUsers" :key="user.username">
-          <span>
-            <img :src="userImg" alt="" />
-            {{ user.username }}
-          </span>
-          <span>
-            {{ user.email }}
-          </span>
-          <span>
-            {{ user.phoneNumber }}
-          </span>
-          <div class="action-container">
-            <i class="bi bi-eye"></i>
-            <i class="bi bi-pencil-square"></i>
-            <i class="bi bi-trash"></i>
+       <div class="user-details-container">
+          <div class="user-info-title">
+            <span>Username</span>
+            <span>Email Address</span>
+            <span>Phone Number</span>
+            <span>Action</span>
           </div>
-        </div>
-      </div>
+          <div class="user-info-container">
+            
+          </div>
+       </div>
       <!-- Pagination -->
-      <div class="pagination">
-        <div class="record-number">
+      <div class="allUsers-pagination">
+        <div class="allUsers-record-number">
           <p>
             Showing {{ displayStart }} - {{ displayEnd }} of {{ users.length }} records
           </p>
