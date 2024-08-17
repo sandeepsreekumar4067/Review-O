@@ -1,5 +1,7 @@
 <template>
-  personal info
+  <div class="personal-info-container">
+    
+  </div>
 </template>
 
 <script>
