@@ -1,0 +1,22 @@
+.addusers-container{
+    height: 100vh;
+    width: 100%;
+    margin-top: 7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.addusers-components{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 1rem;
+    background-color: var(--white);
+    transition: 0.4s;
+    border-radius:  0 0 0;
+}
+.addusers-components.active{
+    margin-left: 19%;
+    border-radius: 10px 0 0 0;
+
+}

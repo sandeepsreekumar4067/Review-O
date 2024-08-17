@@ -7,6 +7,7 @@ import AppsPage from "@/pages/AppsPage.vue";
 import DashBoard from "@/pages/DashBoard.vue";
 import SettingsPage from "@/pages/SettingsPage.vue";
 import AllUsers from "@/pages/AllUsers.vue";
+import AddUsers from "@/pages/AddUsers.vue";
 const routes = [
     {
         path : '/',component:LoginPage
@@ -31,6 +32,9 @@ const routes = [
     },
     {
         path:'/all-users',component:AllUsers
+    },
+    {
+        path:'/add-users',component:AddUsers
     }
 ]
 const router = createRouter({
