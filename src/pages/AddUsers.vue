@@ -22,10 +22,10 @@
         >
       </div>
       <div class="user-tab-container">
-        <div v-if="isPersonalActive">
+        <div class="personal-container" v-if="isPersonalActive">
             <PersonalInformation/>
         </div>
-        <div v-else>
+        <div class="account-access-container" v-else>
             <AccountAccess/>
         </div>
       </div>

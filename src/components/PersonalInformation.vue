@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import '../style/personalinfo.css'
 export default {
 
 }
