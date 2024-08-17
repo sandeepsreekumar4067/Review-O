@@ -34,11 +34,8 @@
     border-bottom: 1.8px solid #4285F4;
     color: #4285F4;
 }
-.user-tab-container{
+
+.personal-container,.account-access-container{
     height: 100%;
     width: 100%;
-}
-.user-tab-container div{
-    height: 100%;
-    width: 100%;
-}
+} 

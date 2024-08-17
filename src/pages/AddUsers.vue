@@ -21,14 +21,12 @@
           >Account Access</span
         >
       </div>
-      <div class="user-tab-container">
-        <div class="personal-container" v-if="isPersonalActive">
+      <div class="personal-container" v-if="isPersonalActive">
             <PersonalInformation/>
         </div>
         <div class="account-access-container" v-else>
             <AccountAccess/>
         </div>
-      </div>
     </div>
   </div>
   <FooterComponent />

@@ -1,5 +1,16 @@
 .personal-info-container{
     height: 100%;
     width: 100%;
-    background-color: red;
+}
+.personal-profile-pic-container {
+    height: 5rem;
+    width: 5rem;
+    background-color: #A2A1A80D;
+    margin: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    border: 1px solid #A2A1A866;
+    
 }
