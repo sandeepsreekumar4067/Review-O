@@ -13,20 +13,23 @@
           :class="['tabs', { active: isPersonalActive }]"
           @click="toggleTabs('personal')"
         >
+          <i class="bi bi-person"></i>
           personal info
         </span>
         <span
           :class="['tabs', { active: isAccoutAccessActive }]"
           @click="toggleTabs('account')"
-          >Account Access</span
+        >
+          <i class="bi bi-shield-lock"></i>
+          Account Access</span
         >
       </div>
       <div class="personal-container" v-if="isPersonalActive">
-            <PersonalInformation/>
-        </div>
-        <div class="account-access-container" v-else>
-            <AccountAccess/>
-        </div>
+        <PersonalInformation />
+      </div>
+      <div class="account-access-container" v-else>
+        <AccountAccess />
+      </div>
     </div>
   </div>
   <FooterComponent />
@@ -46,7 +49,7 @@ export default {
     SideBar,
     FooterComponent,
     PersonalInformation,
-    AccountAccess
+    AccountAccess,
   },
   data() {
     return {
