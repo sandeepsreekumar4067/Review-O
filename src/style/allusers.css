@@ -162,7 +162,14 @@
     justify-content: center;
     gap: 3.5rem;
 }
-
+.user-container div{
+    width:25%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content:center ;
+    gap: 0.5rem;
+}
 #uname{
     align-items: center;
     justify-content: start;

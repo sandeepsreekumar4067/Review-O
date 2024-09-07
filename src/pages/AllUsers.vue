@@ -46,7 +46,11 @@
             </span>
             <span>{{ user.email }}</span>
             <span>{{ user.phoneNumber }}</span>
-            <span>actions</span>
+            <div>
+              <i class="bi bi-eye"></i>
+              <i class="bi bi-pencil-square"></i>
+              <i class="bi bi-trash3"></i>
+            </div>
           </div>
         </div>
       </div>
