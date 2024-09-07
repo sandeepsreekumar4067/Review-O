@@ -12,7 +12,7 @@
 <script>
 import NavBar from "@/components/NavBar.vue";
 import '../style/settingspage.css'
-import SideBar from "@/components/SideBar.vue";
+import SideBar from "@/components/SideBar.vue"; 
 import FooterComponent from "@/components/FooterComponent.vue";
 export default {
   name: "SettingsPage",

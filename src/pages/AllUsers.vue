@@ -1,11 +1,11 @@
 <template>
+  <NavBar
+    :title="title"
+    :subtitle="subtitle"
+    :user="user"
+    @toggle-sidebar="setSidebarActive"
+  />
   <div class="allUsers-container">
-    <NavBar
-      :title="title"
-      :subtitle="subtitle"
-      :user="user"
-      @toggle-sidebar="setSidebarActive"
-    />
     <div :class="['allUsers-components', { active: isSidebarActive }]">
       <SideBar :isActive="isSidebarActive" :activeSpan="3" />
       <!-- User search bar -->
