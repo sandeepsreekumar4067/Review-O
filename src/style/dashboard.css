@@ -2,8 +2,6 @@
     width: 100%;
     height: 100vh;
     display: flex;
-    align-items: center;
-    justify-content: center;
     margin-top: 7rem;
 
 }
@@ -21,4 +19,15 @@
 .dashBoard-components.active{
     margin-left: 19%;
     border-radius: 10px 0 0 0;
+}
+@media screen and (max-width:300px) {
+    .dashBoard-container{
+        align-items: flex-start;
+        justify-content: start;
+        flex-direction: column;
+        margin-top: 0;
+    }
+    .dashBoard-components.active{
+        margin-left: 0;
+    }
 }
