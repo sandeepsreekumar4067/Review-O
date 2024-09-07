@@ -48,6 +48,24 @@
 }
 @media screen and (max-width:300px) {
     .footer-container{
-        display: none;
+        width: 100%;
+        height: 6rem;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .footer-rights-component{
+        height: auto;
+        width: 100%;
+        font-size: 0.8rem;
+    }
+    .footer-termsAndConditions-component{
+        height: 70%;
+        width: 100%;
+        font-size: 0.6rem;
+        justify-content: center;
+        display: flex;
+        align-items: start;
+        box-sizing: border-box;
+        padding: 1rem;
     }
 }
