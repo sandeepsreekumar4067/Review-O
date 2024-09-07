@@ -46,3 +46,8 @@
 .footer-termsAndConditions-component span:hover {
     color: #16151C;
 }
+@media screen and (max-width:300px) {
+    .footer-container{
+        display: none;
+    }
+}
