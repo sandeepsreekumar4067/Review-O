@@ -46,6 +46,31 @@
 .footer-termsAndConditions-component span:hover {
     color: #16151C;
 }
+@media screen and (max-width:500px) {
+    .footer-container{
+        width: 100%;
+        height: 6rem;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .footer-rights-component{
+        height: 50%;
+        width: 100%;
+        font-size: 0.9rem;
+        align-items: end;
+        justify-content: center;
+    }
+    .footer-termsAndConditions-component{
+        height: 50%;
+        width: 100%;
+        font-size: 0.6rem;
+        justify-content: center;
+        display: flex;
+        align-items: start;
+        box-sizing: border-box;
+        padding: 1rem;
+    }
+}
 @media screen and (max-width:300px) {
     .footer-container{
         width: 100%;
@@ -54,12 +79,14 @@
         align-items: flex-start;
     }
     .footer-rights-component{
-        height: auto;
+        height: 50%;
         width: 100%;
         font-size: 0.8rem;
+        align-items: end;
+        justify-content: center;
     }
     .footer-termsAndConditions-component{
-        height: 70%;
+        height: 50%;
         width: 100%;
         font-size: 0.6rem;
         justify-content: center;
