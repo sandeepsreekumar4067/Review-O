@@ -249,8 +249,8 @@
         height: 2.7rem;
         font-size: 1rem;
     }
+    #email,#pno,#action{display: none;}
     .user-details-container{
-        display: none;
     }
     .allUsers-pagination{
         display: none;

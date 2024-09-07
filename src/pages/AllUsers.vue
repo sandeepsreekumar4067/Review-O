@@ -29,9 +29,9 @@
       <div class="user-details-container">
         <div class="user-info-title">
           <span>Username</span>
-          <span>Email Address</span>
-          <span>Phone Number</span>
-          <span>Action</span>
+          <span id="email">Email Address</span>
+          <span id="pno">Phone Number</span>
+          <span id="action">Action</span>
         </div>
         <div class="user-info-container">
           <div
