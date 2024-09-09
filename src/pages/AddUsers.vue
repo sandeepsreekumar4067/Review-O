@@ -1,11 +1,11 @@
 <template>
+  <NavBar
+    :subtitle="subtitle"
+    :title="title"
+    :user="user"
+    @toggle-sidebar="setSideBarActive"
+  />
   <div class="addusers-container">
-    <NavBar
-      :subtitle="subtitle"
-      :title="title"
-      :user="user"
-      @toggle-sidebar="setSideBarActive"
-    />
     <div :class="['addusers-components', { active: isSidebarActive }]">
       <SideBar :isActive="isSidebarActive" :activeSpan="3" />
       <div>

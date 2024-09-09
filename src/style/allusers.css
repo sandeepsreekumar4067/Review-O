@@ -233,7 +233,93 @@
     color: #4285F4;
     border-radius: 8px;
 }
+@media screen and (max-width:800px) {
+    .allUsers-container {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 0;
+        height: auto;
+        overflow-x: hidden;
+    }
 
+    #desktop {
+        display: none;
+    }
+
+    #mobile {
+        display: flex;
+    }
+
+    .allUsers-components.active {
+        margin-left: 0;
+    }
+
+    .users-searchBar-and-addContainer {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .users-searchBar {
+        width: 100%;
+        height: 3rem;
+    }
+
+    .users-searchBar input[type="text"] {
+        font-size: 0.9rem;
+    }
+
+    .users-searchBar i {
+        font-size: 0.9rem;
+
+    }
+
+    .users-Adding-and-filtering-container {
+        width: 100%;
+        height: 2.7rem;
+        font-size: 1rem;
+    }
+
+    .user-details-container {
+        margin-top: 1rem;
+    }
+
+    #email,
+    #pno,
+    #action {
+        display: none;
+    }
+
+    .user-container {
+        flex-direction: column;
+        box-sizing: border-box;
+        padding: 1rem;
+        gap: 1rem;
+        align-items: center;
+        justify-content: center;
+        border-top: solid 2px var(--iconBorderColor);
+        height: auto;
+    }
+
+    .user-container div {
+        width: 100%;
+        gap: 2rem;
+    }
+
+    .allUsers-pagination {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: 1rem;
+    }
+    .allUsers-record-number{
+            font-size: 0.9rem;
+        flex-direction: row;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+}
 @media screen and (max-width:300px) {
     .allUsers-container {
         flex-direction: column;
