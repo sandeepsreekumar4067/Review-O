@@ -213,12 +213,35 @@
 }
 
 @media screen and (max-width:800px) {
+  .organisation-searchBar-and-addContainer{
+    flex-direction: column;
+    height: auto;
+    gap: 0.5rem;
+  }
+  .addOrganisation-searchBar{
+    width: 100%;
+  }
+  .organisation-Adding-and-filtering-container{
+    width: 100%;
+    font-size: 0.9rem;
+  }
   .branches-grid {
     display: flex;
     flex-direction: column;
   }
-
   .branch {
     width: 100%;
+  }
+  .pagination{
+    flex-direction: column;
+  }
+  .record-number{
+    flex-direction: row;
+    width: 100%;
+    padding: 0.4rem;
+  }
+  .pagination span{
+    padding: 0.6rem;
+    font-size: 0.9rem;
   }
 }
