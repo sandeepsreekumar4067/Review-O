@@ -11,22 +11,28 @@
     </div>
     <div class="button-container">
         <input type="button" value="Cancel">
-        <input type="button" value="Save" id="save" @click="addUsers">
-        <ThumbsUp :show="showThumbsUp" :title="title"/>
+        <input type="button" value="Save" id="save" @click="randomResult">
+        <ThumbsUp v-if="status" :show="showThumbsUp" :title="userAddTitle"/>
+        <ThumbsDown v-else :show="showThumbsUp" :title="userFailedTitle"/>
     </div>
   </div>
 </template>
 
 <script>
 import "../style/personalinfo.css";
+import ThumbsDown from "./ThumbsDown.vue";
 import ThumbsUp from "./ThumbsUp.vue";
 export default {
   name:'PersonalInformation',
-  components:{ThumbsUp},
+  components:{
+    ThumbsUp,
+    ThumbsDown},
   data(){
     return{
       showThumbsUp:false,
-      title:'User Added..!'
+      userAddTitle:'User Added..!',
+      userFailedTitle:'User not Added..!',
+      status:false
     }
   },
   methods:{
@@ -34,7 +40,11 @@ export default {
       this.showThumbsUp=true
       setTimeout(() => {
         this.showThumbsUp=false
-      }, 2500);
+      }, 1500);
+    },
+    randomResult(){
+      this.status=Math.random()<0.5
+      this.addUsers()
     }
   }
 };
