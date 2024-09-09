@@ -11,15 +11,32 @@
     </div>
     <div class="button-container">
         <input type="button" value="Cancel">
-        <input type="button" value="Save" id="save">
+        <input type="button" value="Save" id="save" @click="addUsers">
+        <ThumbsUp :show="showThumbsUp" :title="title"/>
     </div>
   </div>
 </template>
 
 <script>
 import "../style/personalinfo.css";
+import ThumbsUp from "./ThumbsUp.vue";
 export default {
-
+  name:'PersonalInformation',
+  components:{ThumbsUp},
+  data(){
+    return{
+      showThumbsUp:false,
+      title:'User Added..!'
+    }
+  },
+  methods:{
+    addUsers(){
+      this.showThumbsUp=true
+      setTimeout(() => {
+        this.showThumbsUp=false
+      }, 2500);
+    }
+  }
 };
 </script>
 
