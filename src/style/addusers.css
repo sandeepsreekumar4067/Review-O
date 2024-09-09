@@ -55,6 +55,9 @@
     width: 100%;
 } 
 @media screen and (max-width:300px) {
+    .addusers-container{
+        margin-top: 0;
+    }
     .addusers-components.active{
         margin-left: 0;
     }

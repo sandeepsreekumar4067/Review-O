@@ -59,7 +59,12 @@
     scale: 0.9;
 }
 @media screen and (max-width:300px) {
-    .personal-info-container{
-        display: none;
+    
+    .personal-info-container input{
+        flex: 1 1 100%;
+    }
+.button-container input[type="button"]{
+        height: 2.7rem;
+        width: 6rem;
     }
 }
