@@ -54,7 +54,7 @@
     height: 100%;
     width: 100%;
 } 
-@media screen and (max-width:300px) {
+@media screen and (max-width:400px) {
     .addusers-container{
         margin-top: 0;
     }
@@ -63,6 +63,7 @@
     }
     .addusers-components{
         padding: 0.8rem;
+        align-items: center;
     }
     .tabs{
         font-size: 0.9rem;

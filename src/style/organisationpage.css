@@ -218,6 +218,9 @@
     height: auto;
     gap: 0.5rem;
   }
+  .organisation-components.active{
+    margin-left: 0;
+  }
   .addOrganisation-searchBar{
     width: 100%;
   }
@@ -241,7 +244,7 @@
     padding: 0.4rem;
   }
   .pagination span{
-    padding: 0.6rem;
+    padding: 0.5rem;
     font-size: 0.9rem;
   }
 }
