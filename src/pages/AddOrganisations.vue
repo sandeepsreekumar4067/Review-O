@@ -7,6 +7,7 @@
   />
   <div class="addOrganisation-container">
     <div :class="['addOrganisation-components', { active: isSidebarActive }]">
+      <SideBar :isActive="isSidebarActive" :activeSpan="2" />
       <div class="addOrganisation-title">Organisation Information</div>
       <div class="addOrganisation-profile-pic-container">
         <i class="bi bi-camera"></i>
@@ -31,13 +32,19 @@
         </select>
       </div>
       <div class="addOrganisation-submit-container">
-          <input type="button" value="Cancel">
-          <input type="button" value="Save" id="save" @click="()=>{this.$router.replace('/organisation')}">
-        </div>
-      <SideBar :isActive="isSidebarActive" :activeSpan="2"/>
+        <input type="button" value="Cancel" />
+        <input
+          type="button"
+          value="Save"
+          id="save"
+          @click="randomResults"
+        />
+      </div>
+      <ThumbsUp v-if="status" :show="showThumbsUp" :title="successTitle"/>
+      <ThumbsDown v-else :show="showThumbsUp" :title="failTitle"/>
     </div>
   </div>
-  <FooterComponent/>
+  <FooterComponent />
 </template>
 
 <script>
@@ -45,20 +52,28 @@ import NavBar from "@/components/NavBar.vue";
 import "../style/addorganisation.css";
 import SideBar from "@/components/SideBar.vue";
 import FooterComponent from "@/components/FooterComponent.vue";
+import ThumbsUp from "@/components/ThumbsUp.vue";
+import ThumbsDown from "@/components/ThumbsDown.vue";
 export default {
   name: "AddOrganisations",
   components: {
     NavBar,
     SideBar,
-    FooterComponent
+    FooterComponent,
+    ThumbsUp,
+    ThumbsDown
   },
   data() {
     return {
       title: "Add Organisation",
       subtitle: "Organisations/Add organisation",
       isSidebarActive: true,
-      user:'Sandeep Sreekumar',
+      user: "Sandeep Sreekumar",
       selectedTimezone: "",
+      status:false,
+      successTitle:'Organisation Added..!',
+      showThumbsUp:false,
+      failTitle:'Organisation couldnt be added.!',
       timezones: [
         { value: "Pacific/Midway", label: "(UTC-11:00) Midway Island" },
         { value: "Pacific/Pago_Pago", label: "(UTC-11:00) Pago Pago" },
@@ -142,6 +157,16 @@ export default {
     setSidebarActive() {
       this.isSidebarActive = !this.isSidebarActive;
     },
+    addOrganisation(){
+      this.showThumbsUp=true
+      setTimeout(() => {
+        this.showThumbsUp=false
+      }, 1500);
+    },
+    randomResults(){
+      this.status=Math.random()<0.5
+      this.addOrganisation()
+    }
   },
 };
 </script>
