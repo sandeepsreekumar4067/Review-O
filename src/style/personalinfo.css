@@ -58,3 +58,8 @@
 .button-container input[type="button"]:active{
     scale: 0.9;
 }
+@media screen and (max-width:300px) {
+    .personal-info-container{
+        display: none;
+    }
+}
