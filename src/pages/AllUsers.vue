@@ -28,7 +28,8 @@
       <!-- User Details container -->
       <div class="user-details-container">
         <div class="user-info-title">
-          <span>Username</span>
+          <span id="desktop">Username</span>
+          <span id="mobile">Users</span>
           <span id="email">Email Address</span>
           <span id="pno">Phone Number</span>
           <span id="action">Action</span>
@@ -109,144 +110,144 @@ export default {
           phoneNumber: "+1-555-123-4567",
           image: "user1.png",
         },
-        {
-          username: "CharlsoiejosijsldklsmlsemfieDavis",
-          email: "charliedavis@example.com",
-          phoneNumber: "+1-555-567-8901",
-          image: "user5.png",
-        },
-        {
-          username: "DavidWilson",
-          email: "davidwilson@example.com",
-          phoneNumber: "+1-555-678-9012",
-          image: "user6.png",
-        },
-        {
-          username: "EmmaMoore",
-          email: "emmamoore@example.com",
-          phoneNumber: "+1-555-789-0123",
-          image: "user7.png",
-        },
-        {
-          username: "JaneSmith",
-          email: "janesmith@example.com",
-          phoneNumber: "+1-555-234-5678",
-          image: "user2.png",
-        },
-        {
-          username: "BobJohnson",
-          email: "bobjohnson@example.com",
-          phoneNumber: "+1-555-345-6789",
-          image: "user3.png",
-        },
-        {
-          username: "AliceBrown",
-          email: "alicebrown@example.com",
-          phoneNumber: "+1-555-456-7890",
-          image: "user4.png",
-        },
-        {
-          username: "CharlieDavis",
-          email: "charliedavis@example.com",
-          phoneNumber: "+1-555-567-8901",
-          image: "user5.png",
-        },
-        {
-          username: "DavidWilson",
-          email: "davidwilson@example.com",
-          phoneNumber: "+1-555-678-9012",
-          image: "user6.png",
-        },
-        {
-          username: "EmmaMoore",
-          email: "emmamoore@example.com",
-          phoneNumber: "+1-555-789-0123",
-          image: "user7.png",
-        },
-        {
-          username: "FrankWhite",
-          email: "frankwhite@example.com",
-          phoneNumber: "+1-555-890-1234",
-          image: "user8.png",
-        },
-        {
-          username: "GraceHarris",
-          email: "graceharris@example.com",
-          phoneNumber: "+1-555-901-2345",
-          image: "user9.png",
-        },
-        {
-          username: "HenryMartin",
-          email: "henrymartin@example.com",
-          phoneNumber: "+1-555-012-3456",
-          image: "user10.png",
-        },
-        {
-          username: "BobJohnson",
-          email: "bobjohnson@example.com",
-          phoneNumber: "+1-555-345-6789",
-          image: "user3.png",
-        },
-        {
-          username: "AliceBrown",
-          email: "alicebrown@example.com",
-          phoneNumber: "+1-555-456-7890",
-          image: "user4.png",
-        },
-        {
-          username: "CharlieDavis",
-          email: "charliedavis@example.com",
-          phoneNumber: "+1-555-567-8901",
-          image: "user5.png",
-        },
-        {
-          username: "DavidWilson",
-          email: "davidwilson@example.com",
-          phoneNumber: "+1-555-678-9012",
-          image: "user6.png",
-        },
-        {
-          username: "FrankWhite",
-          email: "frankwhite@example.com",
-          phoneNumber: "+1-555-890-1234",
-          image: "user8.png",
-        },
-        {
-          username: "GraceHarris",
-          email: "graceharris@example.com",
-          phoneNumber: "+1-555-901-2345",
-          image: "user9.png",
-        },
-        {
-          username: "HenryMartin",
-          email: "henrymartin@example.com",
-          phoneNumber: "+1-555-012-3456",
-          image: "user10.png",
-        },
-        {
-          username: "BobJohnson",
-          email: "bobjohnson@example.com",
-          phoneNumber: "+1-555-345-6789",
-          image: "user3.png",
-        },
-        {
-          username: "AliceBrown",
-          email: "alicebrown@example.com",
-          phoneNumber: "+1-555-456-7890",
-          image: "user4.png",
-        },
-        {
-          username: "EmmaMoore",
-          email: "emmamoore@example.com",
-          phoneNumber: "+1-555-789-0123",
-          image: "user7.png",
-        },
-        {
-          username: "FrankWhite",
-          email: "frankwhite@example.com",
-          phoneNumber: "+1-555-890-1234",
-          image: "user8.png",
-        },
+        // {
+        //   username: "CharlsoiejosijsldklsmlsemfieDavis",
+        //   email: "charliedavis@example.com",
+        //   phoneNumber: "+1-555-567-8901",
+        //   image: "user5.png",
+        // },
+        // {
+        //   username: "DavidWilson",
+        //   email: "davidwilson@example.com",
+        //   phoneNumber: "+1-555-678-9012",
+        //   image: "user6.png",
+        // },
+        // {
+        //   username: "EmmaMoore",
+        //   email: "emmamoore@example.com",
+        //   phoneNumber: "+1-555-789-0123",
+        //   image: "user7.png",
+        // },
+        // {
+        //   username: "JaneSmith",
+        //   email: "janesmith@example.com",
+        //   phoneNumber: "+1-555-234-5678",
+        //   image: "user2.png",
+        // },
+        // {
+        //   username: "BobJohnson",
+        //   email: "bobjohnson@example.com",
+        //   phoneNumber: "+1-555-345-6789",
+        //   image: "user3.png",
+        // },
+        // {
+        //   username: "AliceBrown",
+        //   email: "alicebrown@example.com",
+        //   phoneNumber: "+1-555-456-7890",
+        //   image: "user4.png",
+        // },
+        // {
+        //   username: "CharlieDavis",
+        //   email: "charliedavis@example.com",
+        //   phoneNumber: "+1-555-567-8901",
+        //   image: "user5.png",
+        // },
+        // {
+        //   username: "DavidWilson",
+        //   email: "davidwilson@example.com",
+        //   phoneNumber: "+1-555-678-9012",
+        //   image: "user6.png",
+        // },
+        // {
+        //   username: "EmmaMoore",
+        //   email: "emmamoore@example.com",
+        //   phoneNumber: "+1-555-789-0123",
+        //   image: "user7.png",
+        // },
+        // {
+        //   username: "FrankWhite",
+        //   email: "frankwhite@example.com",
+        //   phoneNumber: "+1-555-890-1234",
+        //   image: "user8.png",
+        // },
+        // {
+        //   username: "GraceHarris",
+        //   email: "graceharris@example.com",
+        //   phoneNumber: "+1-555-901-2345",
+        //   image: "user9.png",
+        // },
+        // {
+        //   username: "HenryMartin",
+        //   email: "henrymartin@example.com",
+        //   phoneNumber: "+1-555-012-3456",
+        //   image: "user10.png",
+        // },
+        // {
+        //   username: "BobJohnson",
+        //   email: "bobjohnson@example.com",
+        //   phoneNumber: "+1-555-345-6789",
+        //   image: "user3.png",
+        // },
+        // {
+        //   username: "AliceBrown",
+        //   email: "alicebrown@example.com",
+        //   phoneNumber: "+1-555-456-7890",
+        //   image: "user4.png",
+        // },
+        // {
+        //   username: "CharlieDavis",
+        //   email: "charliedavis@example.com",
+        //   phoneNumber: "+1-555-567-8901",
+        //   image: "user5.png",
+        // },
+        // {
+        //   username: "DavidWilson",
+        //   email: "davidwilson@example.com",
+        //   phoneNumber: "+1-555-678-9012",
+        //   image: "user6.png",
+        // },
+        // {
+        //   username: "FrankWhite",
+        //   email: "frankwhite@example.com",
+        //   phoneNumber: "+1-555-890-1234",
+        //   image: "user8.png",
+        // },
+        // {
+        //   username: "GraceHarris",
+        //   email: "graceharris@example.com",
+        //   phoneNumber: "+1-555-901-2345",
+        //   image: "user9.png",
+        // },
+        // {
+        //   username: "HenryMartin",
+        //   email: "henrymartin@example.com",
+        //   phoneNumber: "+1-555-012-3456",
+        //   image: "user10.png",
+        // },
+        // {
+        //   username: "BobJohnson",
+        //   email: "bobjohnson@example.com",
+        //   phoneNumber: "+1-555-345-6789",
+        //   image: "user3.png",
+        // },
+        // {
+        //   username: "AliceBrown",
+        //   email: "alicebrown@example.com",
+        //   phoneNumber: "+1-555-456-7890",
+        //   image: "user4.png",
+        // },
+        // {
+        //   username: "EmmaMoore",
+        //   email: "emmamoore@example.com",
+        //   phoneNumber: "+1-555-789-0123",
+        //   image: "user7.png",
+        // },
+        // {
+        //   username: "FrankWhite",
+        //   email: "frankwhite@example.com",
+        //   phoneNumber: "+1-555-890-1234",
+        //   image: "user8.png",
+        // },
       ],
 
     };
