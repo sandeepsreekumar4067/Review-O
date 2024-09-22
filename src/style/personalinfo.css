@@ -22,26 +22,36 @@
     align-items: start;
     justify-content: start;
     gap: 2rem;
-}
-.input-wrapper{
-    height: 3rem;
-    flex: 0 0 30%;
     box-sizing: border-box;
-    padding: .5rem;
-    border: 1px solid #A2A1A899;
-    border-radius: 8px;
+    padding: 1rem;
 }
-.personal-info-entering-container input {
-    /* height: 3rem;
+
+/* .personal-info-entering-container input {
+    height: 3rem;
     flex: 0 0 30%;
     box-sizing: border-box;
     padding: .8rem;
     border: 1px solid #A2A1A899;
-    border-radius: 8px; */
-    height: 100%;
+    border-radius: 8px;
+} */
+
+.input-wrapper {
+    position: relative;
+    flex: 0 0 30%;
+    display: flex;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-wrapper input {
     width: 100%;
+    padding: 0.8rem; /* Keep the padding as per the original input */
+    border: 1px solid #A2A1A899;
+    border-radius: 8px;
     outline: none;
-    border: none;
 }
 
 .personal-info-entering-container input {
@@ -80,7 +90,7 @@
 
 @media screen and (max-width:800px) {
 
-    .personal-info-container input {
+    .input-wrapper{
         flex: 1 1 100%;
     }
 
