@@ -4,11 +4,20 @@
         <i class="bi bi-camera"></i>
     </div>
     <div class="personal-info-entering-container">
-        <input type="text" v-model="firstname" placeholder="First Name">
-        <input type="text" v-model="lastname" placeholder="Last Name">
-        <input type="number" v-model="mobilenumber" placeholder="Mobile Number" >
-        <input type="email" v-model="email" placeholder="Email address">
-    </div>
+        <div class="input-wrapper">
+          <input type="text" v-model="firstname" placeholder="First Name">
+        </div>
+        <div class="input-wrapper">
+          <input type="text" v-model="lastname" placeholder="Last Name">
+        </div>
+        <div class="input-wrapper">
+          <input type="number" v-model="mobilenumber" placeholder="Mobile Number">
+
+        </div>
+        <div class="input-wrapper">
+          <input type="email" v-model="email" placeholder="Email address">
+        </div>
+      </div>
     <div class="button-container">
         <input type="button" value="Cancel">
         <input type="button" value="Save" id="save" @click="randomResult">
@@ -36,7 +45,7 @@ export default {
       firstname:'',
       lastname:'',
       email:'',
-      mobilenumber:0
+      mobilenumber:null
     }
   },
   methods:{

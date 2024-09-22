@@ -23,14 +23,25 @@
     justify-content: start;
     gap: 2rem;
 }
-
-.personal-info-entering-container input {
+.input-wrapper{
     height: 3rem;
+    flex: 0 0 30%;
+    box-sizing: border-box;
+    padding: .5rem;
+    border: 1px solid #A2A1A899;
+    border-radius: 8px;
+}
+.personal-info-entering-container input {
+    /* height: 3rem;
     flex: 0 0 30%;
     box-sizing: border-box;
     padding: .8rem;
     border: 1px solid #A2A1A899;
-    border-radius: 8px;
+    border-radius: 8px; */
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
 }
 
 .personal-info-entering-container input {
