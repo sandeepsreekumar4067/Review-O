@@ -94,7 +94,7 @@
     scale: 0.9;
 }
 
-@media screen and (max-width:300px) {
+@media screen and (max-width:800px) {
     .addOrganisation-container {
         margin-top: 2rem;
         flex-direction: column;

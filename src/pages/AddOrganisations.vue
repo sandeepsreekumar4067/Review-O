@@ -13,13 +13,13 @@
         <i class="bi bi-camera"></i>
       </div>
       <div class="addOrganisation-input-container">
-        <input type="text" placeholder="Legal Name" />
-        <input type="text" placeholder="Address" />
-        <input type="text" placeholder="Neighborhood" />
-        <input type="text" placeholder="City" />
-        <input type="text" placeholder="Province" />
-        <input type="text" placeholder="Country" />
-        <input type="number" placeholder="Postal Code" />
+        <input type="text" v-model="legalName" placeholder="Legal Name" />
+        <input type="text" v-model="address" placeholder="Address" />
+        <input type="text" v-model="neighbourhood" placeholder="Neighborhood" />
+        <input type="text" v-model="city" placeholder="City" />
+        <input type="text" v-model="province" placeholder="Province" />
+        <input type="text" v-model="country" placeholder="Country" />
+        <input type="number" v-model="postalCode" placeholder="Postal Code" />
         <select v-model="selectedTimezone">
           <option disabled value="">Select Timezone</option>
           <option
@@ -33,15 +33,10 @@
       </div>
       <div class="addOrganisation-submit-container">
         <input type="button" value="Cancel" />
-        <input
-          type="button"
-          value="Save"
-          id="save"
-          @click="randomResults"
-        />
+        <input type="button" value="Save" id="save" @click="addOrganisation" />
       </div>
-      <ThumbsUp v-if="status" :show="showThumbsUp" :title="successTitle"/>
-      <ThumbsDown v-else :show="showThumbsUp" :title="failTitle"/>
+      <ThumbsUp v-if="status" :show="showThumbsUp" :title="successTitle" />
+      <ThumbsDown v-else :show="showThumbsUp" :title="failTitle" />
     </div>
   </div>
   <FooterComponent />
@@ -61,7 +56,7 @@ export default {
     SideBar,
     FooterComponent,
     ThumbsUp,
-    ThumbsDown
+    ThumbsDown,
   },
   data() {
     return {
@@ -69,11 +64,18 @@ export default {
       subtitle: "Organisations/Add organisation",
       isSidebarActive: true,
       user: "Sandeep Sreekumar",
+      legalName: "",
+      address: "",
+      neighbourhood: "",
+      city: "",
+      province: "",
+      country: "",
+      postalCode: null,
       selectedTimezone: "",
-      status:false,
-      successTitle:'Organisation Added..!',
-      showThumbsUp:false,
-      failTitle:'Organisation couldnt be added.!',
+      status: false,
+      successTitle: "Organisation Added..!",
+      showThumbsUp: false,
+      failTitle: "Organisation couldnt be added.!",
       timezones: [
         { value: "Pacific/Midway", label: "(UTC-11:00) Midway Island" },
         { value: "Pacific/Pago_Pago", label: "(UTC-11:00) Pago Pago" },
@@ -157,16 +159,41 @@ export default {
     setSidebarActive() {
       this.isSidebarActive = !this.isSidebarActive;
     },
-    addOrganisation(){
+    async addOrganisation() {
+      fetch("http://127.0.0.1:8000/add-organisation", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          legalname: this.legalName,
+          address: this.address,
+          neighbourhood: this.neighbourhood ,
+          city: this.city,
+          province: this.province,
+          country: this.country,
+          postalcode: this.postalCode,
+          timezone: this.selectedTimezone,
+        }),
+      }).then((reponse)=>{
+        return reponse.json()
+      }).then((result)=>{
+        this.status=result['status']
+        
+      })
+
       this.showThumbsUp=true
       setTimeout(() => {
         this.showThumbsUp=false
       }, 1500);
     },
-    randomResults(){
-      this.status=Math.random()<0.5
-      this.addOrganisation()
-    }
+    randomResults() {
+      this.status = Math.random() < 0.5;
+      this.addOrganisation();
+    },
+    checkOrganisation() {
+      "";
+    },
   },
 };
 </script>
