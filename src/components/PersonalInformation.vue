@@ -4,10 +4,10 @@
         <i class="bi bi-camera"></i>
     </div>
     <div class="personal-info-entering-container">
-        <input type="text" placeholder="First Name">
-        <input type="text" placeholder="Last Name">
-        <input type="number" placeholder="Mobile Number" >
-        <input type="email" placeholder="Email address">
+        <input type="text" v-model="firstname" placeholder="First Name">
+        <input type="text" v-model="lastname" placeholder="Last Name">
+        <input type="number" v-model="mobilenumber" placeholder="Mobile Number" >
+        <input type="email" v-model="email" placeholder="Email address">
     </div>
     <div class="button-container">
         <input type="button" value="Cancel">
@@ -32,20 +32,18 @@ export default {
       showThumbsUp:false,
       userAddTitle:'User Added..!',
       userFailedTitle:'User not Added..!',
-      status:false
+      status:false,
+      firstname:'',
+      lastname:'',
+      email:'',
+      mobilenumber:0
     }
   },
   methods:{
     addUsers(){
-      this.showThumbsUp=true
-      setTimeout(() => {
-        this.showThumbsUp=false
-      }, 1500);
+      
     },
-    randomResult(){
-      this.status=Math.random()<0.5
-      this.addUsers()
-    }
+    
   }
 };
 </script>

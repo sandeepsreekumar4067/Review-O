@@ -1,0 +1,4 @@
+{
+    "status":"true/false(boolean)",
+    "message":"Organisation added..!(success)/Organisation couldnt be added..!(fail)"
+}
