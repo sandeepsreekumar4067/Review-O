@@ -1,4 +1,7 @@
-import {  createRouter, createWebHistory } from "vue-router";
+import {
+    createRouter,
+    createWebHistory
+} from "vue-router";
 import LoginPage from "@/pages/LoginPage.vue";
 import OrganisationPage from "@/pages/OrganisationPage.vue";
 import AddProfileDetails from "@/pages/AddProfileDetails.vue";
@@ -8,37 +11,57 @@ import DashBoard from "@/pages/DashBoard.vue";
 import SettingsPage from "@/pages/SettingsPage.vue";
 import AllUsers from "@/pages/AllUsers.vue";
 import AddUsers from "@/pages/AddUsers.vue";
-const routes = [
-    {
-        path : '/',component:LoginPage
+import UserReview from "@/pages/UserReview.vue";
+const routes = [{
+        path: '/',
+        component: LoginPage
     },
     {
-        path:'/organisation',component:OrganisationPage
+        path: '/organisation',
+        component: OrganisationPage
     },
     {
-        path:'/new-profile',component:AddProfileDetails
+        path: '/new-profile',
+        component: AddProfileDetails
     },
     {
-        path : '/add-organisation',component:AddOrganisations
+        path: '/add-organisation',
+        component: AddOrganisations
     },
     {
-        path : '/apps', component : AppsPage
+        path: '/apps',
+        component: AppsPage
     },
     {
-        path:'/dash-board',component:DashBoard
+        path: '/dash-board',
+        component: DashBoard
     },
     {
-        path:'/settings', component:SettingsPage
+        path: '/settings',
+        component: SettingsPage
     },
     {
-        path:'/all-users',component:AllUsers
+        path: '/all-users',
+        component: AllUsers
     },
     {
-        path:'/add-users',component:AddUsers
-    }
+        path: '/add-users',
+        component: AddUsers
+    },
+    {
+        path: "/user-review",
+        name: "UserReview",
+        component: UserReview,
+        props: route => ({
+            title: route.query.title,
+            subtitle: route.query.subtitle,
+            description: route.query.description,
+        }),
+    },
+
 ]
 const router = createRouter({
-    history:createWebHistory(),
+    history: createWebHistory(),
     routes,
 })
 

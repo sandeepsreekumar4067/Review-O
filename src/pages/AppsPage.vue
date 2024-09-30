@@ -32,14 +32,16 @@
                 v-if="company.subscribed"
                 type="button"
                 value="Unsubscribe"
-                @click="toggleSubscription(index)"
+                @click="
+                  toggleSubscription(index, company.name, company.description)
+                "
               />
               <input
                 v-else
                 type="button"
                 value="Subscribe"
                 id="subscribed"
-                @click="toggleSubscription(index)"
+                @click="toggleSubscription(index, company.name, company.description)"
               />
             </div>
           </div>
@@ -52,7 +54,7 @@
       </div>
     </div>
   </div>
-  <FooterComponent/>
+  <FooterComponent />
 </template>
 
 <script>
@@ -68,12 +70,13 @@ import skipTheDishes from "../assets/skipTheDishes.svg";
 import facebook from "../assets/facebook.svg";
 import yelp from "../assets/yelp.svg";
 import FooterComponent from "@/components/FooterComponent.vue";
+
 export default {
   name: "AppsPage",
   components: {
     NavBar,
     SideBar,
-    FooterComponent
+    FooterComponent,
   },
   data() {
     return {
@@ -160,9 +163,20 @@ export default {
     setSideBarActive() {
       this.isSideBarActive = !this.isSideBarActive;
     },
-    toggleSubscription(index) {
+    async toggleSubscription(index, name, description) {
       this.companies[index].subscribed = !this.companies[index].subscribed;
       this.companies[index].subscribed ? this.launchConfetti() : "";
+
+      
+      // Navigate to UserReview component with data
+      this.$router.push({
+        path: "/user-review",
+        query: {
+          title: name, // Pass the company name as the title
+          subtitle: "App Information / " +name, // You can adjust the subtitle as per your needs
+          description: description,
+        },
+      });
     },
     launchConfetti() {
       confetti({
