@@ -1,9 +1,9 @@
 <template>
   <NavBar
+    :user="user"
     :title="title"
     :subtitle="subtitle"
-    :user="user"
-    @toggle-sidebar="setSideBarActive"
+    @toggle-sidebar="setSidebarActive"
   />
   <div class="app-container">
     <div :class="['app-components', { active: isSideBarActive }]">
