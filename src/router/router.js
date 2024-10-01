@@ -56,6 +56,7 @@ const routes = [{
             title: route.query.title,
             subtitle: route.query.subtitle,
             description: route.query.description,
+            icon:route.query.icon
         }),
     },
 

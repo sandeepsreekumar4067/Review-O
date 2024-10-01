@@ -33,7 +33,7 @@
                 type="button"
                 value="Unsubscribe"
                 @click="
-                  toggleSubscription(index, company.name, company.description)
+                  toggleSubscription(index, company.name, company.description,company.icon,company.subscribed)
                 "
               />
               <input
@@ -41,7 +41,7 @@
                 type="button"
                 value="Subscribe"
                 id="subscribed"
-                @click="toggleSubscription(index, company.name, company.description)"
+                @click="toggleSubscription(index, company.name, company.description,company.icon,company.subscribed)"
               />
             </div>
           </div>
@@ -163,7 +163,7 @@ export default {
     setSideBarActive() {
       this.isSideBarActive = !this.isSideBarActive;
     },
-    async toggleSubscription(index, name, description) {
+    async toggleSubscription(index, name, description,icon) {
       this.companies[index].subscribed = !this.companies[index].subscribed;
       this.companies[index].subscribed ? this.launchConfetti() : "";
 
@@ -175,6 +175,7 @@ export default {
           title: name, // Pass the company name as the title
           subtitle: "App Information / " +name, // You can adjust the subtitle as per your needs
           description: description,
+          icon:icon
         },
       });
     },
