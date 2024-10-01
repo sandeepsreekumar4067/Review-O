@@ -39,6 +39,7 @@
               Reply
               <i class="bi bi-reply"></i>
             </div>
+            <textarea name="" id=""></textarea>
           </div>
         </div>
       </div>

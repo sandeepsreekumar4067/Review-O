@@ -75,6 +75,7 @@
     display: flex;
     align-items: start;
     justify-content: start;
+    background-color: red;
 }
 .review-user-image{
     height: 100%;
