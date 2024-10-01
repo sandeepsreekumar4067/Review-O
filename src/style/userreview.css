@@ -17,6 +17,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    gap: 1.5rem;
     justify-content: start;
 }
 .user-review-components.active{
@@ -56,7 +57,7 @@
     gap: 1rem;
 }
 .app-review-section{
-    height: 80%;
+    min-height: 80%;
     width: 100%;
     box-sizing: border-box;
     padding: 1rem;
@@ -67,4 +68,57 @@
     gap: 1rem;
     background-color: #EBEFF580;
     border-radius: 10px;
+}
+.review{
+    min-height: 10rem;
+    width: 100%;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+}
+.review-user-image{
+    height: 100%;
+    width: 10%;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    box-sizing: border-box;
+    padding: 0.5rem;
+}
+.review-user-image img{
+    height: 50%;
+    width: 50%;
+    object-fit: contain;
+}
+.review-user-details{
+    width: 90%;
+    height: 100%;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    display: flex;
+    align-items: start;
+    justify-content: space-around;
+    gap: 1rem;
+    flex-direction: column;
+}
+.review-user-name{
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+.reply-button{
+    background-color: var(--blue);
+    box-sizing: border-box;
+    height: 2.5rem;
+    width: 6rem;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: white;
+    font-weight: 300;
+    cursor: pointer;
+}
+.bi-reply{
+    font-size: 1.5rem;
+    font-weight: 400;
 }

@@ -24,7 +24,23 @@
       </div>
       <!-- App review container -->
       <div class="app-review-section">
-        
+        <div class="review">
+          <div class="review-user-image">
+            <img :src="img" alt="">
+          </div>
+          <div class="review-user-details">
+            <div class="review-user-name">
+              User
+            </div>
+            <div class="review-user-comment">
+              {{ description }}
+            </div>
+            <div class="reply-button">
+              Reply
+              <i class="bi bi-reply"></i>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -36,7 +52,7 @@ import NavBar from "@/components/NavBar.vue";
 import "../style/userreview.css";
 import SideBar from "@/components/SideBar.vue";
 import FooterComponent from "@/components/FooterComponent.vue";
-
+import img from '../assets/userName.svg'
 export default {
   components: {
     NavBar,
@@ -48,6 +64,7 @@ export default {
     return {
       user: "Sandeep",
       isSideBarActive: true,
+      img:img
     };
   },
   methods: {
