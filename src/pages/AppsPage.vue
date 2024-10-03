@@ -3,7 +3,7 @@
     :user="user"
     :title="title"
     :subtitle="subtitle"
-    @toggle-sidebar="setSidebarActive"
+    @toggle-sidebar="setSideBarActive"
   />
   <div class="app-container">
     <div :class="['app-components', { active: isSideBarActive }]">

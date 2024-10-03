@@ -75,7 +75,6 @@
     display: flex;
     align-items: start;
     justify-content: start;
-    background-color: red;
 }
 .review-user-image{
     height: 100%;
@@ -122,4 +121,66 @@
 .bi-reply{
     font-size: 1.5rem;
     font-weight: 400;
+}
+
+
+.review-text-area{
+    height: 0;
+    width: 0;
+    opacity: 0;
+    transition: 0.3s ease;
+}
+
+.review-text-area.active{
+    height: 12rem;
+    width: 90%;
+    background-color: white;
+    border-radius: 5px;
+    box-sizing: border-box;
+    opacity: 1;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+.review-text-area textarea{
+    width: 100%;
+    resize: none;
+    height: 80%;
+    border: none;
+}
+textarea:active{
+    border: white;
+}
+.review-selection-container{
+    height:23%;
+    width: 100%;
+    border-top: solid 2px #DDDDDD;
+    display: flex;
+    padding-top: 0.4em;
+    align-items: center;
+    box-sizing: border-box;
+    justify-content: space-around;
+    cursor: pointer;
+}
+.review-selection-container span{
+    width: auto;
+    height: 2rem;
+    box-sizing: border-box;
+    padding: 0.4rem;
+    border-radius: 10px;
+    background-color: #4285F41A;
+}
+.send-review-button{
+    height: 2.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    color: white;
+    font-weight: 300;
+    width: 6rem;
+    background-color: #4285F4;
+    border-radius: 5px;
 }

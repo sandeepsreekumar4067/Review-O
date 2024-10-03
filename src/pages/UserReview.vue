@@ -35,11 +35,28 @@
             <div class="review-user-comment">
               {{ description }}
             </div>
-            <div class="reply-button">
+            <div class="reply-button" @click="activeReply">
               Reply
               <i class="bi bi-reply"></i>
             </div>
-            <textarea name="" id=""></textarea>
+            <div :class="['review-text-area',{active:replyActive}]">
+              <textarea id=""></textarea>
+              <div class="review-selection-container">
+                <span>
+                  Professional Reply
+                </span>
+                <span>
+                  Casual Reply
+                </span>
+                <span>
+                  Friendly Reply
+                </span>
+                <div class="send-review-button">
+                  send
+                  <i class="bi bi-send"></i>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -65,13 +82,17 @@ export default {
     return {
       user: "Sandeep",
       isSideBarActive: true,
-      img:img
+      img:img,
+      replyActive:false
     };
   },
   methods: {
     setSidebarActive() {
       this.isSideBarActive = !this.isSideBarActive;
     },
+    activeReply(){
+      this.replyActive=!this.replyActive
+    }
   },
 };
 </script>
