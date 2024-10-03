@@ -1,6 +1,6 @@
 .user-review-container{
     margin-top: 7rem;
-    height: 100vh;
+    height: auto;
     width: 100%;
     display: flex;
     align-items: center;
@@ -8,7 +8,7 @@
 }
 .user-review-components{
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
     background-color: var(--white);
     transition: 0.4s;
     box-sizing: border-box;
@@ -106,7 +106,7 @@
     font-size: 1.5rem;
 }
 .reply-button{
-    background-color: var(--blue);
+    background-color: transparent;
     box-sizing: border-box;
     height: 2.5rem;
     width: 6rem;
@@ -114,15 +114,20 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    color: white;
+    color: black;
     font-weight: 300;
     cursor: pointer;
+    border: solid 1px black;
 }
 .bi-reply{
     font-size: 1.5rem;
     font-weight: 400;
 }
-
+.reply-button.active{
+    background-color: var(--blue);
+    color: white;
+    border: none;
+}
 
 .review-text-area{
     height: 0;
