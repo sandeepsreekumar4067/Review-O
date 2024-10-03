@@ -24,7 +24,7 @@
       </div>
       <!-- App review container -->
       <div class="app-review-section">
-        <div class="review" v-for="(review, index) in reviews" :key="index">
+        <div class="review" v-for="(review, index) in restaurant_reviews.reviews" :key="index">
           <div class="review-user-image">
             <img :src="img" alt="" />
           </div>
@@ -35,16 +35,19 @@
             <div class="review-user-comment">
               {{ review.review_text }}
             </div>
-            <div :class="['reply-button',{active:review.replyActive}]" @click="activeReply(index)">
+            <div
+              :class="['reply-button', { active: review.replyActive }]"
+              @click="activeReply(index)"
+            >
               Reply
               <i class="bi bi-reply"></i>
             </div>
             <div :class="['review-text-area', { active: review.replyActive }]">
-              <textarea id=""></textarea>
+              <textarea v-model="review.ai_response" id="" :placeholder="placeholder"></textarea>
               <div class="review-selection-container">
-                <span> Professional Reply </span>
+                <span > Professional Reply </span>
                 <span> Casual Reply </span>
-                <span> Friendly Reply </span>
+                <span @click="getAiResponse(review,index)"> Friendly Reply </span>
                 <div class="send-review-button">
                   send
                   <i class="bi bi-send"></i>
@@ -77,98 +80,63 @@ export default {
       user: "Sandeep",
       isSideBarActive: true,
       img: img,
-      reviews: [
-        {
-          review_id: 1,
-          customer_name: "John Doe",
-          rating: 5,
-          review_text:
-            "The food was exceptional! Great ambiance and the staff were very attentive. Will definitely come back!",
-          date: "2023-09-12",
-          replyActive: false,
-        },
-        {
-          review_id: 2,
-          customer_name: "Jane Smith",
-          rating: 4,
-          review_text:
-            "Loved the appetizers, but the main course was a bit too salty for my taste. Overall a good experience.",
-          date: "2023-09-14",
-          replyActive: false,
-        },
-        {
-          review_id: 3,
-          customer_name: "Sam Wilson",
-          rating: 3,
-          review_text:
-            "The service was slow, but the food was decent. Nothing too special.",
-          date: "2023-09-18",
-          replyActive: false,
-        },
-        {
-          review_id: 4,
-          customer_name: "Emily Davis",
-          rating: 5,
-          review_text:
-            "Best dining experience I've had in a while! The chef's special was mind-blowing. Highly recommended!",
-          date: "2023-09-21",
-          replyActive: false,
-        },
-        {
-          review_id: 4,
-          customer_name: "Emily Davis",
-          rating: 5,
-          review_text:
-            "Best dining experience I've had in a while! The chef's special was mind-blowing. Highly recommended!",
-          date: "2023-09-21",
-          replyActive: false,
-        },
-        {
-          review_id: 4,
-          customer_name: "Emily Davis",
-          rating: 5,
-          review_text:
-            "Best dining experience I've had in a while! The chef's special was mind-blowing. Highly recommended!",
-          date: "2023-09-21",
-          replyActive: false,
-        },
-        {
-          review_id: 4,
-          customer_name: "Emily Davis",
-          rating: 5,
-          review_text:
-            "Best dining experience I've had in a while! The chef's special was mind-blowing. Highly recommended!",
-          date: "2023-09-21",
-          replyActive: false,
-        },
-        {
-          review_id: 4,
-          customer_name: "Emily Davis",
-          rating: 5,
-          review_text:
-            "Best dining experience I've had in a while! The chef's special was mind-blowing. Highly recommended!",
-          date: "2023-09-21",
-          replyActive: false,
-        },
-        {
-          review_id: 4,
-          customer_name: "Emily Davis",
-          rating: 5,
-          review_text:
-            "Best dining experience I've had in a while! The chef's special was mind-blowing. Highly recommended!",
-          date: "2023-09-21",
-          replyActive: false,
-        },
-        {
-          review_id: 5,
-          customer_name: "Mark Lee",
-          rating: 2,
-          review_text:
-            "Disappointed. The food was cold when served, and the portions were smaller than expected.",
-          date: "2023-09-22",
-          replyActive: false,
-        },
-      ],
+      placeholder:'Your or Ai response',
+      restaurant_reviews: {
+        restaurant_name: "The Gourmet Spot",
+        reviews: [
+          {
+            review_id: 1,
+            customer_name: "John Doe",
+            replyActive: false,
+            rating: 5,
+            review_text:
+              "The food was exceptional! Great ambiance and the staff were very attentive. Will definitely come back!",
+            date: "2023-09-12",
+            ai_response: "",
+          },
+          {
+            review_id: 2,
+            customer_name: "Jane Smith",
+            rating: 4,
+            replyActive: false,
+
+            review_text:
+              "Loved the appetizers, but the main course was a bit too salty for my taste. Overall a good experience.",
+            date: "2023-09-14",
+            ai_response: "",
+          },
+          {
+            review_id: 3,
+            customer_name: "Sam Wilson",
+            replyActive: false,
+            rating: 3,
+            review_text:
+              "The service was slow, but the food was decent. Nothing too special.",
+            date: "2023-09-18",
+            ai_response: "",
+          },
+          {
+            review_id: 4,
+            replyActive: false,
+            customer_name: "Emily Davis",
+            rating: 5,
+            review_text:
+              "Best dining experience I've had in a while! The chef's special was mind-blowing. Highly recommended!",
+            date: "2023-09-21",
+            ai_response: "",
+          },
+          {
+            review_id: 5,
+            customer_name: "Mark Lee",
+            replyActive: false,
+            rating: 2,
+            review_text:
+              "Disappointed. The food was cold when served, and the portions were smaller than expected.",
+            date: "2023-09-22",
+            ai_response: "",
+          },
+        ],
+      },
     };
   },
   methods: {
@@ -176,11 +144,44 @@ export default {
       this.isSideBarActive = !this.isSideBarActive;
     },
     activeReply(index) {
-    // Loop through all reviews and set `replyActive` to false
-    this.reviews.forEach((review, i) => {
-      review.replyActive = i === index ? !review.replyActive : false;
-    });
-  },
+      // Loop through all reviews and set `replyActive` to false
+      this.restaurant_reviews.reviews.forEach((review, i) => {
+        review.replyActive = i === index ? !review.replyActive : false;
+      });
+    },
+    async getAiResponse(review,index){
+      this.placeholder = 'Please wait as the reply is being Generated'
+      fetch('http://127.0.0.1:8000/ai',{
+        method:'POST',
+        headers:{
+          'Content-Type':'application/json'
+        },
+        body:JSON.stringify({
+          "restaurant_name":this.restaurant_reviews.restaurant_name,
+          "reviews":[
+            {"review_id": 1,
+            "customer_name": review.customer_name,
+            "rating": review.rating,
+            "review_text": review.review_text,
+            "date": review.date
+          }
+        ]
+        })
+      }).then((response)=>{
+        if(response.ok){
+          return response.json()
+        }else{
+          alert('Failed to connect to backend')
+        }
+      }).then((result)=>{
+        if(result && result.length > 0){
+          this.restaurant_reviews.reviews[index].ai_response = result[0].ai_response
+        }
+      })
+      .catch((err)=>{
+        alert(err)
+      })
+    }
   },
 };
 </script>

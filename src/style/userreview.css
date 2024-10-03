@@ -137,7 +137,8 @@
 }
 
 .review-text-area.active{
-    height: 12rem;
+    height: 15rem;
+    outline: none;
     width: 90%;
     background-color: white;
     border-radius: 5px;
