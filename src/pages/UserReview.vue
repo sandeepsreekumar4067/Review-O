@@ -24,7 +24,11 @@
       </div>
       <!-- App review container -->
       <div class="app-review-section">
-        <div class="review" v-for="(review, index) in restaurant_reviews.reviews" :key="index">
+        <div
+          class="review"
+          v-for="(review, index) in restaurant_reviews.reviews"
+          :key="index"
+        >
           <div class="review-user-image">
             <img :src="img" alt="" />
           </div>
@@ -43,11 +47,17 @@
               <i class="bi bi-reply"></i>
             </div>
             <div :class="['review-text-area', { active: review.replyActive }]">
-              <textarea v-model="review.ai_response" id="" :placeholder="placeholder"></textarea>
+              <textarea
+                v-model="review.ai_response"
+                id=""
+                :placeholder="review.placeholder"
+              ></textarea>
               <div class="review-selection-container">
-                <span > Professional Reply </span>
+                <span> Professional Reply </span>
                 <span> Casual Reply </span>
-                <span @click="getAiResponse(review,index)"> Friendly Reply </span>
+                <span @click="getFriendlyAiResponse(review, index)">
+                  Friendly Reply
+                </span>
                 <div class="send-review-button">
                   send
                   <i class="bi bi-send"></i>
@@ -80,13 +90,13 @@ export default {
       user: "Sandeep",
       isSideBarActive: true,
       img: img,
-      placeholder:'Your or Ai response',
       restaurant_reviews: {
         restaurant_name: "The Gourmet Spot",
         reviews: [
           {
             review_id: 1,
             customer_name: "John Doe",
+            placeholder: "Your or Ai response",
             replyActive: false,
             rating: 5,
             review_text:
@@ -99,6 +109,7 @@ export default {
             customer_name: "Jane Smith",
             rating: 4,
             replyActive: false,
+            placeholder: "Your or Ai response",
 
             review_text:
               "Loved the appetizers, but the main course was a bit too salty for my taste. Overall a good experience.",
@@ -109,6 +120,7 @@ export default {
             review_id: 3,
             customer_name: "Sam Wilson",
             replyActive: false,
+            placeholder: "Your or Ai response",
             rating: 3,
             review_text:
               "The service was slow, but the food was decent. Nothing too special.",
@@ -120,6 +132,7 @@ export default {
             replyActive: false,
             customer_name: "Emily Davis",
             rating: 5,
+            placeholder: "Your or Ai response",
             review_text:
               "Best dining experience I've had in a while! The chef's special was mind-blowing. Highly recommended!",
             date: "2023-09-21",
@@ -129,6 +142,7 @@ export default {
             review_id: 5,
             customer_name: "Mark Lee",
             replyActive: false,
+            placeholder: "Your or Ai response",
             rating: 2,
             review_text:
               "Disappointed. The food was cold when served, and the portions were smaller than expected.",
@@ -149,39 +163,78 @@ export default {
         review.replyActive = i === index ? !review.replyActive : false;
       });
     },
-    async getAiResponse(review,index){
-      this.placeholder = 'Please wait as the reply is being Generated'
-      fetch('http://127.0.0.1:8000/ai',{
-        method:'POST',
-        headers:{
-          'Content-Type':'application/json'
+    async getFriendlyAiResponse(review, index) {
+      this.restaurant_reviews.reviews[index].placeholder =
+        "Please wait as the reply is being Generated";
+      fetch("http://127.0.0.1:8000/friendly_ai", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-        body:JSON.stringify({
-          "restaurant_name":this.restaurant_reviews.restaurant_name,
-          "reviews":[
-            {"review_id": 1,
-            "customer_name": review.customer_name,
-            "rating": review.rating,
-            "review_text": review.review_text,
-            "date": review.date
+        body: JSON.stringify({
+          restaurant_name: this.restaurant_reviews.restaurant_name,
+          reviews: [
+            {
+              review_id: 1,
+              customer_name: review.customer_name,
+              rating: review.rating,
+              review_text: review.review_text,
+              date: review.date,
+            },
+          ],
+        }),
+      })
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          } else {
+            alert("Failed to connect to backend");
           }
-        ]
         })
-      }).then((response)=>{
-        if(response.ok){
-          return response.json()
-        }else{
-          alert('Failed to connect to backend')
-        }
-      }).then((result)=>{
-        if(result && result.length > 0){
-          this.restaurant_reviews.reviews[index].ai_response = result[0].ai_response
-        }
+        .then((result) => {
+          if (result && result.length > 0) {
+            this.restaurant_reviews.reviews[index].ai_response =
+              result[0].ai_response;
+          }
+        })
+        .catch((err) => {
+          alert(err);
+        });
+    },
+    async getCasualAiResponse(review, index) {
+      fetch("http://127.0.0.1:8000/casual_ai", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          restaurant_name: this.restaurant_reviews.restaurant_name,
+          reviews: [
+            {
+              review_id: 1,
+              customer_name: review.customer_name,
+              rating: review.rating,
+              review_text: review.review_text,
+              date: review.date,
+            },
+          ],
+        }),
       })
-      .catch((err)=>{
-        alert(err)
-      })
-    }
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          } else {
+            alert("Failed to connect to the backend");
+          }
+        })
+        .then((result) => {
+          this.restaurant_reviews.reviews[index].ai_response =
+            result[0].ai_response;
+        })
+        .catch((err) => {
+          alert(err);
+        });
+    },
   },
 };
 </script>
