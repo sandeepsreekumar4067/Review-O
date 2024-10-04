@@ -53,8 +53,10 @@
                 :placeholder="review.placeholder"
               ></textarea>
               <div class="review-selection-container">
-                <span> Professional Reply </span>
-                <span> Casual Reply </span>
+                <span @click="getProfessionalAiResponse(review,index)"> Professional Reply </span>
+                <span @click="getCasualAiResponse(review, index)">
+                  Casual Reply
+                </span>
                 <span @click="getFriendlyAiResponse(review, index)">
                   Friendly Reply
                 </span>
@@ -202,6 +204,8 @@ export default {
         });
     },
     async getCasualAiResponse(review, index) {
+      this.restaurant_reviews.reviews[index].placeholder =
+      "Please wait as the reply is being Generated";
       fetch("http://127.0.0.1:8000/casual_ai", {
         method: "POST",
         headers: {
@@ -225,6 +229,42 @@ export default {
             return response.json();
           } else {
             alert("Failed to connect to the backend");
+          }
+        })
+        .then((result) => {
+          this.restaurant_reviews.reviews[index].ai_response =
+            result[0].ai_response;
+        })
+        .catch((err) => {
+          alert(err);
+        });
+    },
+    async getProfessionalAiResponse(review, index) {
+      this.restaurant_reviews.reviews[index].placeholder =
+      "Please wait as the reply is being Generated";
+      fetch("http://127.0.0.1:8000/professional_ai", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          restaurant_name: this.restaurant_reviews.restaurant_name,
+          reviews: [
+            {
+              review_id: 1,
+              customer_name: review.customer_name,
+              rating: review.rating,
+              review_text: review.review_text,
+              date: review.date,
+            },
+          ],
+        }),
+      })
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          } else {
+            alert("Failed to connect to backend");
           }
         })
         .then((result) => {
