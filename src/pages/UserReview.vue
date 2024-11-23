@@ -102,30 +102,30 @@ export default {
             replyActive: false,
             rating: 5,
             review_text:
-              "The food was exceptional! Great ambiance and the staff were very attentive. Will definitely come back!",
+              "Amazing, perfectly cooked dish. Very nice plating. Everything was so fresh, light and tasty! Couldn't even tell the waffle was gluten free, the hash was a mix of root veg and the dairy free holidase did not disappoint!Also, very nice setting and emasculate bathrooms with plants and fresh cut flowers.",
             date: "2023-09-12",
             ai_response: "",
           },
           {
             review_id: 2,
             customer_name: "Jane Smith",
-            rating: 4,
+            rating: 5,
             replyActive: false,
             placeholder: "Your or Ai response",
 
             review_text:
-              "Loved the appetizers, but the main course was a bit too salty for my taste. Overall a good experience.",
+              "What a great place.  Fantastic prices for the absolute quality you get.  I was so happy to dig into this pesto pasta.  It was so delicious that I was half finished before I thought to take a photo for the review.  The staff was extremely friendly and helpful.  There is also an impressive bakery section.",
             date: "2023-09-14",
             ai_response: "",
           },
           {
-            review_id: 3,
+            review_id: 5,
             customer_name: "Sam Wilson",
             replyActive: false,
             placeholder: "Your or Ai response",
             rating: 3,
             review_text:
-              "The service was slow, but the food was decent. Nothing too special.",
+              "I had gone to Sea to Sky Gondola and I came across the Festal Cafe in Squamish. I really loved their food and a great ambience. The portion size was really good and the ingredients used looked high quality. I would highly recommend people to go there and enjoy their food.",
             date: "2023-09-18",
             ai_response: "",
           },
